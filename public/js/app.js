@@ -85816,7 +85816,13 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('example-component', __webp
 var vuetify = new vuetify__WEBPACK_IMPORTED_MODULE_1___default.a();
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
-  vuetify: vuetify
+  vuetify: vuetify,
+  data: function data() {
+    return {
+      drawer: false,
+      text: 'Hello, I\'m a snackbar'
+    };
+  }
 });
 
 /***/ }),

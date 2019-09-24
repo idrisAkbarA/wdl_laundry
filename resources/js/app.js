@@ -34,5 +34,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const vuetify = new Vuetify();
 const app = new Vue({
     el: '#app',
-    vuetify
+    vuetify,
+    data: () => ({
+        drawer: false,
+        text: 'Hello, I\'m a snackbar',
+      }),
 });
