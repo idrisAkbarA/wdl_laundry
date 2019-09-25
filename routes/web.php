@@ -24,6 +24,9 @@ Route::get('/kasir', function (){
 Route::get('/pegawai', function (){
     return view('pegawai');
 });
+Route::get('/pelanggan', function (){
+    return view('pelanggan');
+});
 Route::get('/jasa', function (){
     return view('jasa');
 });

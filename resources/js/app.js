@@ -50,6 +50,9 @@ const app = new Vue({
         pegawai(){
             window.location.href = '/pegawai';
         },
+        pelanggan(){
+            window.location.href = '/pelanggan';
+        },
         jasa(){
             window.location.href = '/jasa';
         },

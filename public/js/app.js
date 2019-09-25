@@ -85834,6 +85834,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     pegawai: function pegawai() {
       window.location.href = '/pegawai';
     },
+    pelanggan: function pelanggan() {
+      window.location.href = '/pelanggan';
+    },
     jasa: function jasa() {
       window.location.href = '/jasa';
     },
