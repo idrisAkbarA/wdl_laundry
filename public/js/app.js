@@ -85820,7 +85820,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   data: function data() {
     return {
       drawer: false,
-      text: 'Hello, I\'m a snackbar'
+      show1: false
     };
   }
 });

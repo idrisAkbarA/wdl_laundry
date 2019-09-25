@@ -11,6 +11,7 @@
     <div id="app">
         <v-app id="inspire">
           <v-navigation-drawer
+
             v-model="drawer"
             app
           >
@@ -40,9 +41,9 @@
             dark
           >
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-            <v-toolbar-title>Application</v-toolbar-title>
+            <v-toolbar-title>@yield('title')</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-icon>logout</v-icon>
+            <v-btn text dark><span><v-icon>logout</v-icon></span> Keluar</v-btn>
           </v-app-bar>
 
           <v-content>

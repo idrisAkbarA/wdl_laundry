@@ -18,7 +18,7 @@
         <v-app id="app">
             <div class="i-container">
                 <div class="left"></div>
-                <div class="right indigo">
+                <div class="right blue">
                     <v-container
                     fluid
                     fill-height
@@ -30,9 +30,11 @@
                       <v-flex
                         xs12
                         sm12
-                        md4
+                        md6
                       >
-                      <h1 class="white--text">Masuk</h1>
+                      <v-form lazy-validation="true" >
+                            <h2 class="white--text
+                      mb-4">Masuk</h1>
                       <v-text-field
 
                       {{-- background-color="white" --}}
@@ -43,6 +45,7 @@
                         prepend-inner-icon="account_box"
                         type="text"
                         dark
+                        required
 
                       ></v-text-field>
                       <v-text-field
@@ -53,15 +56,21 @@
                         name="login"
                         filled="true"
                         prepend-inner-icon="lock"
-                        type="text"
+                        type="password"
                         dark
+                        required
+                        :append-icon="show1 ? 'visibility_off' : 'visibility'"
+                        @click:append="show1 = !show1"
+                        :type="show1 ? 'text' : 'password'"
                       ></v-text-field>
                       <a href="/kasir">
-                        <v-btn @click="kasir">
+                        <v-btn @click="submit">
                                 Masuk</v-btn>
                     </a>
 
                       <v-btn text dark>Lupa kata sandi?</v-btn>
+                      </v-form>
+
                       </v-flex>
                     </v-layout>
                   </v-container>

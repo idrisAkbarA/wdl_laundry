@@ -37,7 +37,7 @@ const app = new Vue({
     vuetify,
     data: () => ({
         drawer: false,
-        text: 'Hello, I\'m a snackbar',
+        show1: false
       }),
 
 });
