@@ -51,10 +51,10 @@
               fill-height
             >
               <v-layout
-                align-center
+                align-left
                 justify-center
               >
-                <v-flex text-xs-center>
+                <v-flex text-left>
                     @yield('content')
                 </v-flex>
               </v-layout>
