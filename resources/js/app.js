@@ -37,7 +37,8 @@ const app = new Vue({
     vuetify,
     data: () => ({
         drawer: false,
-        show1: false
+        show1: false,
+        sheet: false,
       }),
 
 });
