@@ -36,13 +36,13 @@
 
           <v-app-bar
             app
-            color="indigo"
+            color="blue"
             dark
           >
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title>Application</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-icon>lock</v-icon>
+            <v-icon>logout</v-icon>
           </v-app-bar>
 
           <v-content>
@@ -61,7 +61,7 @@
             </v-container>
           </v-content>
           <v-footer
-            color="indigo"
+            color="blue"
             app
           >
             <span class="white--text">&copy; 2019</span>
