@@ -26,7 +26,7 @@ grey lighten-3
                 <td>Kg</td>
                 <td>3000</td>
                 <td class="text-center"><span><v-btn text><v-icon>edit</v-icon></v-btn></span><v-btn text><v-icon>delete</v-icon></v-btn></td>
-    
+
             </tr>
             <tr>
                 <td>Cuci Gosok</td>
@@ -38,7 +38,7 @@ grey lighten-3
         </template>
         </v-simple-table>
     </v-container>
-    
+
     {{-- bottom sheet --}}
     <div class="text-center">
         <v-btn
@@ -64,7 +64,7 @@ grey lighten-3
                     <v-col cols="12" lg="4" sm="6" md="3">
                         <v-text-field
                             label="Satuan"
-                            prepend-inner-icon="weight_scale"
+                            prepend-inner-icon="layers"
                             filled
                         ></v-text-field>
                         </v-col>
@@ -85,8 +85,8 @@ grey lighten-3
                 @click="sheet = !sheet"
             >Tambahkan</v-btn>
             </div>
-            
-    
+
+
             </v-sheet>
         </v-bottom-sheet>
         </div>

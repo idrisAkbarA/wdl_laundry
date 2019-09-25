@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <title>Document</title>
 </head>
-<body>
+<body  >
     <div id="app">
         <v-app id="inspire">
           <v-navigation-drawer
@@ -71,6 +71,7 @@
             app
             color="blue"
             dark
+            dense
           >
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title>@yield('title')</v-toolbar-title>
@@ -78,28 +79,30 @@
             <v-btn text dark><span><v-icon>logout</v-icon></span> Keluar</v-btn>
           </v-app-bar>
 
-          <v-content>
+          <v-content  >
             <v-container
+
               fluid
               fill-height
+
             >
               <v-layout
                 align-left
                 justify-center
                 row wrap
               >
-                <v-flex text-left>
+                <v-flex text-left  >
                     @yield('content')
                 </v-flex>
               </v-layout>
             </v-container>
           </v-content>
-          <v-footer
+          {{-- <v-footer
             color="blue"
             app
           >
             <span class="white--text">&copy; 2019</span>
-          </v-footer>
+          </v-footer> --}}
         </v-app>
       </div>
     <script src="{{asset('js/app.js')}}">
