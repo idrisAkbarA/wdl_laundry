@@ -85822,6 +85822,26 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       drawer: false,
       show1: false
     };
+  },
+  methods: {
+    dasbor: function dasbor() {
+      window.location.href = '/dasbor';
+    },
+    kasir: function kasir() {
+      window.location.href = '/kasir';
+    },
+    pegawai: function pegawai() {
+      window.location.href = '/pegawai';
+    },
+    jasa: function jasa() {
+      window.location.href = '/jasa';
+    },
+    laporan: function laporan() {
+      window.location.href = '/laporan';
+    },
+    riwayat: function riwayat() {
+      window.location.href = '/riwayat';
+    }
   }
 });
 

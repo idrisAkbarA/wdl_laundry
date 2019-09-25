@@ -16,7 +16,7 @@
             app
           >
             <v-list dense>
-              <v-list-item @click="" class="@yield('dasbor')">
+              <v-list-item @click="dasbor()" class="@yield('dasbor')">
                 <v-list-item-action>
                   <v-icon color="blue">dashboard</v-icon>
                 </v-list-item-action>
@@ -24,7 +24,7 @@
                   <v-list-item-title>Dasbor</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
-              <v-list-item @click="" class="@yield('kasir')">
+              <v-list-item @click="kasir()" class="@yield('kasir')">
                 <v-list-item-action>
                   <v-icon color="blue">attach_money</v-icon>
                 </v-list-item-action>
@@ -32,7 +32,7 @@
                   <v-list-item-title>Kasir</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
-              <v-list-item @click="" class="@yield('pegawai')">
+              <v-list-item @click="pegawai()" class="@yield('pegawai')">
                 <v-list-item-action>
                   <v-icon color="blue">supervised_user_circle</v-icon>
                 </v-list-item-action>
@@ -40,7 +40,7 @@
                   <v-list-item-title>Pegawai</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
-              <v-list-item @click="" class="@yield('jasa')">
+              <v-list-item @click="jasa()" class="@yield('jasa')">
                 <v-list-item-action>
                   <v-icon color="blue">local_laundry_service</v-icon>
                 </v-list-item-action>
@@ -48,7 +48,7 @@
                   <v-list-item-title>Jasa</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
-              <v-list-item @click="" class="@yield('laporan')">
+              <v-list-item @click="laporan()" class="@yield('laporan')">
                     <v-list-item-action>
                       <v-icon color="blue">view_list</v-icon>
                     </v-list-item-action>
@@ -56,7 +56,7 @@
                       <v-list-item-title>Laporan</v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
-              <v-list-item @click="" class="@yield('riwayat')">
+              <v-list-item @click="riwayat()" class="@yield('riwayat')">
                 <v-list-item-action>
                   <v-icon color="blue">receipt</v-icon>
                 </v-list-item-action>

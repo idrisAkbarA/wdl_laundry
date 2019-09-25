@@ -39,5 +39,25 @@ const app = new Vue({
         drawer: false,
         show1: false
       }),
+    methods:{
+        dasbor(){
+            window.location.href = '/dasbor';
+        },
+        kasir(){
+            window.location.href = '/kasir';
+        },
+        pegawai(){
+            window.location.href = '/pegawai';
+        },
+        jasa(){
+            window.location.href = '/jasa';
+        },
+        laporan(){
+            window.location.href = '/laporan';
+        },
+        riwayat(){
+            window.location.href = '/riwayat';
+        },
+    }
 
 });
