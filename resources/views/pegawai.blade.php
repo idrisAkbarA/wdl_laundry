@@ -17,7 +17,7 @@ grey lighten-3
           <th class="font-weight-bold body-1">Nomor HP</th>
           <th class="font-weight-bold body-1">Tanggal Masuk</th>
           <th class="font-weight-bold body-1">Jabatan</th>
-          <th class="font-weight-bold body-1">Aksi</th>
+          <th class="font-weight-bold body-1 text-center">Aksi</th>
         </tr>
       </thead>
       <tbody>
@@ -26,7 +26,7 @@ grey lighten-3
           <td>082169670012</td>
           <td>31 Agustus 2000</td>
           <td>Kasir</td>
-          <td><span><v-btn text><v-icon>edit</v-icon></v-btn></span><v-btn text><v-icon>delete</v-icon></v-btn></td>
+          <td class="text-center"><span><v-btn text><v-icon>edit</v-icon></v-btn></span><v-btn text><v-icon>delete</v-icon></v-btn></td>
 
         </tr>
         <tr>
@@ -34,7 +34,7 @@ grey lighten-3
           <td>082169670012</td>
           <td>31 Agustus 2000</td>
           <td>Kasir</td>
-          <td><span><v-btn text><v-icon>edit</v-icon></v-btn></span><v-btn text><v-icon>delete</v-icon></v-btn></td>
+          <td class="text-center"><span><v-btn text><v-icon>edit</v-icon></v-btn></span><v-btn text><v-icon>delete</v-icon></v-btn></td>
         </tr>
       </tbody>
     </template>
@@ -56,27 +56,53 @@ grey lighten-3
         </div>
         <div class="mx-5">
             <v-row rows="12" sm="6" md="3">
-                <v-col cols="12" sm="6" md="3">
+                <v-col cols="12" lg="3" sm="6" md="3">
                     <v-text-field
                       label="Nama"
+                      prepend-inner-icon="person"
                       filled
                     ></v-text-field>
                   </v-col>
-                <v-col cols="12" sm="6" md="3">
+                <v-col cols="12" lg="3" sm="6" md="3">
                     <v-text-field
                       label="Nomor HP"
+                      prepend-inner-icon="phone"
                       filled
                     ></v-text-field>
                   </v-col>
-                <v-col cols="12" sm="6" md="3">
-                    <v-text-field
-                      label="Tanggal Masuk"
-                      filled
-                    ></v-text-field>
+
+                {{-- input date --}}
+                <v-col cols="12" lg="3" sm="6" md="4">
+                    <v-dialog
+                      ref="dialog"
+                      v-model="modal"
+                      :return-value.sync="date"
+                      persistent
+                      width="290px"
+                    >
+                      <template v-slot:activator="{ on }">
+                        <v-text-field
+                          v-model="date"
+                          label="Picker in dialog"
+                          prepend-inner-icon="event"
+                          readonly
+                          filled
+                          v-on="on"
+                        ></v-text-field>
+                      </template>
+                      <v-date-picker v-model="date" scrollable>
+                        <div class="flex-grow-1"></div>
+                        <v-btn text color="primary" @click="modal = false">Cancel</v-btn>
+                        <v-btn text color="primary" @click="$refs.dialog.save(date)">OK</v-btn>
+                      </v-date-picker>
+                    </v-dialog>
                   </v-col>
-                <v-col cols="12" sm="6" md="3">
+                {{-- end --}}
+
+                <v-col cols="12" lg="3" sm="6" md="3">
                     <v-text-field
                       label="Jabatan"
+                      prepend-inner-icon="assignment"
                       filled
                     ></v-text-field>
                   </v-col>

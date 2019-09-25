@@ -10,4 +10,4 @@ grey lighten-3
 
 @section('content')
     <h1>ini laporan</h1>
-@endseLaporan
+@endsection
