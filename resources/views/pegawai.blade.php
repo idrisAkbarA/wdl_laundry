@@ -1,5 +1,12 @@
 @extends('layouts.afterLogin')
 
+@section('pegawai')
+grey lighten-3
+@endsection
+@section('title')
+    Pegawai
+@endsection
+
 @section('content')
 <v-container class="mt-5">
 <v-simple-table>

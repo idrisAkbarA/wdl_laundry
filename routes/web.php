@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('pegawai');
+    return view('login');
 });
 
 Auth::routes();
@@ -20,6 +20,21 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/kasir', function (){
     return view('kasir');
+});
+Route::get('/pegawai', function (){
+    return view('pegawai');
+});
+Route::get('/jasa', function (){
+    return view('jasa');
+});
+Route::get('/laporan', function (){
+    return view('laporan');
+});
+Route::get('/dasbor', function (){
+    return view('dasbor');
+});
+Route::get('/riwayat', function (){
+    return view('riwayat');
 });
 
 
