@@ -1,14 +1,21 @@
 @extends('layouts.afterLogin')
 
+@section('pegawai')
+grey lighten-3
+@endsection
+@section('title')
+    Pegawai
+@endsection
+
 @section('content')
 <v-container>
-<v-simple-table class="blue white--text">
+<v-simple-table>
     <template v-slot:default>
       <thead>
         <tr>
-          <th class="white--text font-weight-bold body-1">Nama</th>
-          <th class="white--text font-weight-bold body-1">Jabatan</th>
-          <th class="white--text font-weight-bold body-1">Tanggal Masuk</th>
+          <th class=" font-weight-bold body-1">Nama</th>
+          <th class=" font-weight-bold body-1">Jabatan</th>
+          <th class=" font-weight-bold body-1">Tanggal Masuk</th>
         </tr>
       </thead>
       <tbody>

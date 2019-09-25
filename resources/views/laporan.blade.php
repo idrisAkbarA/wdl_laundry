@@ -1,13 +1,13 @@
 @extends('layouts.afterLogin')
 
-@section('kasir')
+@section('laporan')
 grey lighten-3
 @endsection
 
 @section('title')
-    Kasir
+    Laporan
 @endsection
 
 @section('content')
-    <h1>ini kasir</h1>
-@endsection
+    <h1>ini laporan</h1>
+@endseLaporan
