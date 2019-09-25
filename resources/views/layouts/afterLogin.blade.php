@@ -80,22 +80,7 @@
           </v-app-bar>
 
           <v-content  >
-            <v-container
-
-              fluid
-              fill-height
-
-            >
-              <v-layout
-                align-left
-                justify-center
-                row wrap
-              >
-                <v-flex text-left  >
                     @yield('content')
-                </v-flex>
-              </v-layout>
-            </v-container>
           </v-content>
           {{-- <v-footer
             color="blue"
