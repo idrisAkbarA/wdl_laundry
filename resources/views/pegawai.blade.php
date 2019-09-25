@@ -9,7 +9,7 @@ grey lighten-3
 
 @section('content')
 <v-container class="mt-5">
-<v-simple-table>
+<v-simple-table style="background-color:transparent !important">
     <template v-slot:default>
       <thead>
         <tr>

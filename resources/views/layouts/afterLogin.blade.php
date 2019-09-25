@@ -40,6 +40,14 @@
                   <v-list-item-title>Pegawai</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
+              <v-list-item @click="pelanggan()" class="@yield('pelanggan')">
+                <v-list-item-action>
+                  <v-icon color="blue">person</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title>Pelanggan</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
               <v-list-item @click="jasa()" class="@yield('jasa')">
                 <v-list-item-action>
                   <v-icon color="blue">local_laundry_service</v-icon>
