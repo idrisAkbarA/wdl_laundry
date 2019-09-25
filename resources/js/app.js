@@ -60,6 +60,9 @@ const app = new Vue({
         pelanggan(){
             window.location.href = '/pelanggan';
         },
+        daftarLoket(){
+            window.location.href = '/daftarLoket';
+        },
         jasa(){
             window.location.href = '/jasa';
         },

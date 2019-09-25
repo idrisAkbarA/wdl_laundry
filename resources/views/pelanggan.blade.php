@@ -22,6 +22,7 @@ grey lighten-3
                     <template v-slot:default>
                       <thead>
                         <tr>
+                          <th class="font-weight-bold body-1">No.</th>
                           <th class="font-weight-bold body-1">Nama</th>
                           <th class="font-weight-bold body-1">Nomor HP</th>
                           <th class="font-weight-bold body-1">Alamat</th>
@@ -32,6 +33,7 @@ grey lighten-3
                       </thead>
                       <tbody>
                         <tr>
+                          <td>1. </td>
                           <td>Idris Akbar Adyusman</td>
                           <td>082169670012</td>
                           <td>jalan</td>
@@ -40,7 +42,7 @@ grey lighten-3
                           <td>12kg</td>
                         </tr>
                         <tr>
-                          <td>Idris Akbar Adyusman</td>
+                          <td>2. </td>
                           <td>082169670012</td>
                           <td>jalan</td>
                           <td>31 Agustus 2000</td>
@@ -61,6 +63,7 @@ grey lighten-3
                     <template v-slot:default>
                       <thead>
                         <tr>
+                          <th class="font-weight-bold body-1">No. </th>
                           <th class="font-weight-bold body-1">Nama</th>
                           <th class="font-weight-bold body-1">Nomor HP</th>
                           <th class="font-weight-bold body-1">Alamat</th>
@@ -71,6 +74,7 @@ grey lighten-3
                       </thead>
                       <tbody>
                         <tr>
+                          <td>1. </td>
                           <td>Idris Akbar Adyusman</td>
                           <td>082169670012</td>
                           <td>jalan</td>
@@ -78,6 +82,7 @@ grey lighten-3
                           <td>12</td>
                         </tr>
                         <tr>
+                          <td>2. </td>
                           <td>Idris Akbar Adyusman</td>
                           <td>082169670012</td>
                           <td>jalan</td>
@@ -98,6 +103,7 @@ grey lighten-3
                     <template v-slot:default>
                       <thead>
                         <tr>
+                          <th class="font-weight-bold body-1">No. </th>
                           <th class="font-weight-bold body-1">Nama</th>
                           <th class="font-weight-bold body-1">Nomor HP</th>
                           <th class="font-weight-bold body-1">Alamat</th>
@@ -109,6 +115,7 @@ grey lighten-3
                       </thead>
                       <tbody>
                         <tr>
+                          <td>1. </td>
                           <td>Idris Akbar Adyusman</td>
                           <td>082169670012</td>
                           <td>jalan</td>
@@ -118,6 +125,7 @@ grey lighten-3
                           <td>member</td>
                         </tr>
                         <tr>
+                          <td>2. </td>
                           <td>Idris Akbar Adyusman</td>
                           <td>082169670012</td>
                           <td>jalan</td>

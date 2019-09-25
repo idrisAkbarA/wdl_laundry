@@ -27,6 +27,9 @@ Route::get('/pegawai', function (){
 Route::get('/pelanggan', function (){
     return view('pelanggan');
 });
+Route::get('/daftarLoket', function (){
+    return view('daftarLoket');
+});
 Route::get('/jasa', function (){
     return view('jasa');
 });
