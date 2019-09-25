@@ -86,6 +86,7 @@
               <v-layout
                 align-left
                 justify-center
+                row wrap
               >
                 <v-flex text-left>
                     @yield('content')
