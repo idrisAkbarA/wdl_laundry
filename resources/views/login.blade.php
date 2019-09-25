@@ -43,7 +43,7 @@
                         prepend-inner-icon="account_box"
                         type="text"
                         dark
-                        full-width="true"
+
                       ></v-text-field>
                       <v-text-field
 
@@ -56,7 +56,11 @@
                         type="text"
                         dark
                       ></v-text-field>
-                      <v-btn>Masuk</v-btn>
+                      <a href="/kasir">
+                        <v-btn @click="kasir">
+                                Masuk</v-btn>
+                    </a>
+
                       <v-btn text dark>Lupa kata sandi?</v-btn>
                       </v-flex>
                     </v-layout>

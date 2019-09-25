@@ -39,4 +39,5 @@ const app = new Vue({
         drawer: false,
         text: 'Hello, I\'m a snackbar',
       }),
+
 });

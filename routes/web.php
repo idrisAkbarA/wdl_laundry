@@ -12,12 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('kasir');
+    return view('login');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/kasir', function (){
+    return view('kasir');
+});
+
 
 Auth::routes();
 

@@ -41,6 +41,8 @@
           >
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title>Application</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-icon>lock</v-icon>
           </v-app-bar>
 
           <v-content>
