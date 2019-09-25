@@ -81,25 +81,22 @@
                 </v-list>
             </v-navigation-drawer>
 
-            <v-app-bar app color="blue" dark dense>
-                <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-                <v-toolbar-title>@yield('title')</v-toolbar-title>
-                <v-spacer></v-spacer>
-                <v-btn text dark><span>
-                        <v-icon>logout</v-icon>
-                    </span> Keluar</v-btn>
-            </v-app-bar>
+            <v-app-bar
+            app
+            color="blue"
+            dark
+            dense
+          >
+            <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+            <v-toolbar-title>@yield('title')</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-btn text dark><span><v-icon>logout</v-icon></span> Keluar</v-btn>
+          </v-app-bar>
 
-            <v-content>
-                <v-container fluid fill-height>
-                    <v-layout align-left justify-center row wrap>
-                        <v-flex text-left>
-                            @yield('content')
-                        </v-flex>
-                    </v-layout>
-                </v-container>
-            </v-content>
-            {{-- <v-footer
+          <v-content  >
+                    @yield('content')
+          </v-content>
+          {{-- <v-footer
             color="blue"
             app
           >
