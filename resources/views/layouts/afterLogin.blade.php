@@ -11,6 +11,7 @@
     <div id="app">
         <v-app id="inspire">
           <v-navigation-drawer
+
             v-model="drawer"
             app
           >
@@ -36,13 +37,13 @@
 
           <v-app-bar
             app
-            color="indigo"
+            color="blue"
             dark
           >
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-            <v-toolbar-title>Application</v-toolbar-title>
+            <v-toolbar-title>@yield('title')</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-icon>lock</v-icon>
+            <v-btn text dark><span><v-icon>logout</v-icon></span> Keluar</v-btn>
           </v-app-bar>
 
           <v-content>
@@ -61,7 +62,7 @@
             </v-container>
           </v-content>
           <v-footer
-            color="indigo"
+            color="blue"
             app
           >
             <span class="white--text">&copy; 2019</span>
