@@ -39,6 +39,13 @@ const app = new Vue({
         drawer: false,
         show1: false,
         sheet: false,
+        items: [
+            { title: 'Click Me' },
+            { title: 'Click Me' },
+            { title: 'Click Me' },
+            { title: 'Click Me 2' },
+          ],
+          closeOnClick: true,
       }),
     methods:{
         dasbor(){

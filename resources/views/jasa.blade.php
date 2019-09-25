@@ -25,14 +25,14 @@ grey lighten-3
                 <td>Cuci</td>
                 <td>Kg</td>
                 <td>3000</td>
-                <td class="text-center"><span><v-btn text><v-icon>edit</v-icon></v-btn></span><v-btn text><v-icon>delete</v-icon></v-btn></td>
+                <td class="text-center"><span><v-btn icon><v-icon>edit</v-icon></v-btn></span><v-btn icon><v-icon>delete</v-icon></v-btn></td>
 
             </tr>
             <tr>
                 <td>Cuci Gosok</td>
                 <td>Helai</td>
                 <td>1000</td>
-                <td class="text-center"><span><v-btn text><v-icon>edit</v-icon></v-btn></span><v-btn text><v-icon>delete</v-icon></v-btn></td>
+                <td class="text-center"><span><v-btn icon><v-icon>edit</v-icon></v-btn></span><v-btn icon><v-icon>delete</v-icon></v-btn></td>
             </tr>
             </tbody>
         </template>

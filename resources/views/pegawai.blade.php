@@ -26,7 +26,7 @@ grey lighten-3
           <td>082169670012</td>
           <td>31 Agustus 2000</td>
           <td>Kasir</td>
-          <td class="text-center"><span><v-btn text><v-icon>edit</v-icon></v-btn></span><v-btn text><v-icon>delete</v-icon></v-btn></td>
+          <td class="text-center"><span><v-btn icon><v-icon>edit</v-icon></v-btn></span><v-btn icon><v-icon>delete</v-icon></v-btn></td>
 
         </tr>
         <tr>
@@ -34,7 +34,7 @@ grey lighten-3
           <td>082169670012</td>
           <td>31 Agustus 2000</td>
           <td>Kasir</td>
-          <td class="text-center"><span><v-btn text><v-icon>edit</v-icon></v-btn></span><v-btn text><v-icon>delete</v-icon></v-btn></td>
+          <td class="text-center"><span><v-btn icon><v-icon>edit</v-icon></v-btn></span><v-btn icon><v-icon>delete</v-icon></v-btn></td>
         </tr>
       </tbody>
     </template>
@@ -116,10 +116,10 @@ grey lighten-3
           @click="sheet = !sheet"
         >Tambahkan</v-btn>
         </div>
-        
+
 
       </v-sheet>
     </v-bottom-sheet>
   </div>
-  
+
 @endsection
