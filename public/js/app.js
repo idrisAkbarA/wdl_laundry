@@ -85864,6 +85864,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   vuetify: vuetify,
   data: function data() {
     return {
+      fad: false,
+      loading: false,
       // navigation
       drawer: false,
       //password
@@ -85879,11 +85881,21 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       date2: new Date().toISOString().substr(0, 10)
     };
   },
+  created: function created() {
+    var _this = this;
+
+    //fad = !fad;
+    setTimeout(function () {
+      return _this.fad = !_this.fad;
+    }, 100);
+  },
   methods: {
     firstFunction: function firstFunction(_callback) {
       // do some asynchronous work
       // and when the asynchronous stuff is complete
+      this.loading = true;
       this.drawer = !this.drawer;
+      this.fad = !this.fad;
       console.log('test' + this.drawer);
 
       _callback();

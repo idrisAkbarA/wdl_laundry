@@ -36,6 +36,8 @@ const app = new Vue({
     el: '#app',
     vuetify,
     data: () => ({
+        fad: false,
+        loading:false,
         // navigation
         drawer: false,
         //password
@@ -50,11 +52,17 @@ const app = new Vue({
         date1: new Date().toISOString().substr(0, 10),
         date2: new Date().toISOString().substr(0, 10),
       }),
+      created(){
+        //fad = !fad;
+        setTimeout(() => this.fad = !this.fad, 100)
+      },
     methods:{
         firstFunction(_callback){
             // do some asynchronous work
             // and when the asynchronous stuff is complete
+            this.loading=true;
             this.drawer=!this.drawer;
+            this.fad=!this.fad;
             console.log('test'+this.drawer);
             _callback();
         },

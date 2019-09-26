@@ -11,7 +11,10 @@
 
 <body>
     <div id="app">
-        <v-app id="inspire">
+
+        <v-app id="inspire" >
+
+
             <v-navigation-drawer v-model="drawer" app>
                 <v-list dense>
                     <v-list-item @click="dasbor()" class="@yield('dasbor')">
@@ -91,11 +94,19 @@
             <v-toolbar-title>@yield('title')</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-btn text dark><span><v-icon>logout</v-icon></span> Keluar</v-btn>
+            <v-progress-linear
+        :active="loading"
+        indeterminate
+        absolute
+        bottom
+        color="white accent-4"
+      ></v-progress-linear>
           </v-app-bar>
-
-          <v-content  >
-                    @yield('content')
-          </v-content>
+          <v-slide-y-reverse-transition>
+              <v-content v-if="fad" >
+                  @yield('content')
+                </v-content>
+            </v-slide-y-reverse-transition>
           {{-- <v-footer
             color="blue"
             app
