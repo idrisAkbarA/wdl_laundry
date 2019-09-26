@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\loket;
+use App\User;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Hash;
 
 class loketController extends Controller
 {
@@ -12,6 +15,7 @@ class loketController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    use RegistersUsers;
     public function index()
     {
         $lokets = loket::all();
@@ -38,6 +42,8 @@ class loketController extends Controller
     {
         $form = $request->input();
         //print_r($form['nama']);
+        $defaultPassword = $form['nama']."123123";
+        User::create(['name'=>$form['nama'], 'email'=>$form['email'],'password'=>Hash::make($defaultPassword)]);
         loket::create(['nama'=>$form['nama'],'alamat'=>$form['alamat'],'hp'=>$form['hp'],'status'=>'aktif']);
         $lokets = loket::all();
         return view('daftarLoket')->with('lokets', $lokets);
