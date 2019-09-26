@@ -10,6 +10,13 @@ grey lighten-3
 
 @section('content')
 <v-container class="mt-5" style="width:80%" >
+        <v-btn
+        class="mb-4"
+        color="blue"
+        dark
+        @click="sheet = !sheet">
+        Tambahkan Jasa
+    </v-btn>
     <v-simple-table style="background-color:transparent !important">
         <template v-slot:default>
             <thead>
@@ -41,17 +48,10 @@ grey lighten-3
 
     {{-- bottom sheet --}}
     <div class="text-center">
-        <v-btn
-            color="blue"
-            dark
-            @click="sheet = !sheet">
-            Tambahkan Jasa
-        </v-btn>
+
         <v-bottom-sheet v-model="sheet">
             <v-sheet class="text-left">
-            <div class="ml-5" style="height:3em">
-                <p class="blue--text font-weight-bold body-1 pt-4" >Tambahkan Jasa</p>
-            </div>
+
             <div class="mx-5">
                 <v-row rows="12" sm="6" md="3">
                     <v-col cols="12" lg="4" sm="6" md="3">
