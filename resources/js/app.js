@@ -36,16 +36,19 @@ const app = new Vue({
     el: '#app',
     vuetify,
     data: () => ({
+        // navigation
         drawer: false,
+        //password
         show1: false,
+        //bottom sheet
         sheet: false,
-        items: [
-            { title: 'Click Me' },
-            { title: 'Click Me' },
-            { title: 'Click Me' },
-            { title: 'Click Me 2' },
-          ],
-          closeOnClick: true,
+        //filter
+        closeOnClick: true,
+        // date picker
+        date: new Date().toISOString().substr(0, 10),
+        modal: false,
+        date1: new Date().toISOString().substr(0, 10),
+        date2: new Date().toISOString().substr(0, 10),
       }),
     methods:{
         dasbor(){
