@@ -1,6 +1,6 @@
 @extends('layouts.afterLogin')
 
-@section('dasbor')
+@section('daftarLoket')
 grey lighten-3
 @endsection
 
@@ -10,6 +10,9 @@ Daftar Loket
 
 @section('content')
 <v-container>
+        <v-btn class="ma-4" color="blue" dark @click="sheet = !sheet">
+                Tambahkan Loket
+        </v-btn>
     <v-expansion-panels focusable popout>
 
         @if(count($lokets)>0)
@@ -67,9 +70,7 @@ Daftar Loket
 
 {{-- bottom sheet --}}
 <div class="text-center">
-    <v-btn color="blue" dark @click="sheet = !sheet">
-        Tambahkan Loket
-    </v-btn>
+
     <v-bottom-sheet v-model="sheet">
         <v-sheet class="text-left">
             <div class="mt-5" style="height:3em">

@@ -9,6 +9,9 @@ Pegawai
 
 @section('content')
 <v-container class="mt-5">
+        <v-btn class="mb-4" color="blue" dark @click="sheet = !sheet">
+                Tambahkan Pegawai
+            </v-btn>
     <v-simple-table style="background-color:transparent !important">
         <template v-slot:default>
             <thead>
@@ -61,9 +64,7 @@ Pegawai
 
 {{-- bottom sheet --}}
 <div class="text-center">
-    <v-btn color="blue" dark @click="sheet = !sheet">
-        Tambahkan Pegawai
-    </v-btn>
+
     <v-bottom-sheet v-model="sheet">
         <v-sheet class="text-left">
             <div class="mt-5" style="height:3em">
