@@ -85880,29 +85880,53 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     };
   },
   methods: {
+    firstFunction: function firstFunction(_callback) {
+      // do some asynchronous work
+      // and when the asynchronous stuff is complete
+      this.drawer = !this.drawer;
+      console.log('test' + this.drawer);
+
+      _callback();
+    },
     dasbor: function dasbor() {
-      window.location.href = '/dasbor';
+      this.firstFunction(function () {
+        window.location.href = '/dasbor';
+      });
     },
     kasir: function kasir() {
-      window.location.href = '/kasir';
+      this.firstFunction(function () {
+        window.location.href = '/kasir';
+      });
     },
     pegawai: function pegawai() {
-      window.location.href = '/pegawai';
+      this.firstFunction(function () {
+        window.location.href = '/pegawai';
+      });
     },
     pelanggan: function pelanggan() {
-      window.location.href = '/pelanggan';
+      this.firstFunction(function () {
+        window.location.href = '/pelanggan';
+      });
     },
     daftarLoket: function daftarLoket() {
-      window.location.href = '/daftarLoket';
+      this.firstFunction(function () {
+        window.location.href = '/daftarLoket';
+      });
     },
     jasa: function jasa() {
-      window.location.href = '/jasa';
+      this.firstFunction(function () {
+        window.location.href = '/jasa';
+      });
     },
     laporan: function laporan() {
-      window.location.href = '/laporan';
+      this.firstFunction(function () {
+        window.location.href = '/laporan';
+      });
     },
     riwayat: function riwayat() {
-      window.location.href = '/riwayat';
+      this.firstFunction(function () {
+        window.location.href = '/riwayat';
+      });
     }
   }
 });
@@ -86054,8 +86078,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\Kuliah\APK\wdl_laundry\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\Kuliah\APK\wdl_laundry\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! A:\Programming\Web-Root\wdl_laundry\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! A:\Programming\Web-Root\wdl_laundry\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

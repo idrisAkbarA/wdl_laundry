@@ -51,29 +51,66 @@ const app = new Vue({
         date2: new Date().toISOString().substr(0, 10),
       }),
     methods:{
+        firstFunction(_callback){
+            // do some asynchronous work
+            // and when the asynchronous stuff is complete
+            this.drawer=!this.drawer;
+            console.log('test'+this.drawer);
+            _callback();
+        },
         dasbor(){
-            window.location.href = '/dasbor';
+            this.firstFunction(function() {
+                window.location.href = '/dasbor';
+            });
+
         },
         kasir(){
-            window.location.href = '/kasir';
+
+            this.firstFunction(function() {
+                window.location.href = '/kasir';
+            });
         },
         pegawai(){
-            window.location.href = '/pegawai';
+
+
+            this.firstFunction(function() {
+                window.location.href = '/pegawai';
+            });
         },
         pelanggan(){
-            window.location.href = '/pelanggan';
+
+
+            this.firstFunction(function() {
+                window.location.href = '/pelanggan';
+            });
         },
         daftarLoket(){
-            window.location.href = '/daftarLoket';
+
+
+            this.firstFunction(function() {
+                window.location.href = '/daftarLoket';
+            });
         },
         jasa(){
-            window.location.href = '/jasa';
+
+
+            this.firstFunction(function() {
+                window.location.href = '/jasa';
+            });
         },
         laporan(){
-            window.location.href = '/laporan';
+
+
+            this.firstFunction(function() {
+                window.location.href = '/laporan';
+            });
         },
         riwayat(){
-            window.location.href = '/riwayat';
+
+
+            this.firstFunction(function() {
+                window.location.href = '/riwayat';
+            });
         },
     }
 
