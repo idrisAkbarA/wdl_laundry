@@ -27,9 +27,8 @@ Route::get('/pegawai', function (){
 Route::get('/pelanggan', function (){
     return view('pelanggan');
 });
-Route::get('/daftarLoket', function (){
-    return view('daftarLoket');
-});
+Route::get('/daftarLoket', 'loketController@index');
+
 Route::get('/jasa', function (){
     return view('jasa');
 });

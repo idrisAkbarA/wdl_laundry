@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\loket;
 
 class loketController extends Controller
 {
@@ -13,7 +14,8 @@ class loketController extends Controller
      */
     public function index()
     {
-        //
+        $lokets = loket::all();
+        return view('daftarLoket')->with('lokets', $lokets);
     }
 
     /**
