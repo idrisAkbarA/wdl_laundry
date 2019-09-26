@@ -45,23 +45,6 @@ Daftar Loket
                                             <v-icon>delete</v-icon>
                                         </v-btn>
                                     </td>
-
-                                </tr>
-                                <tr>
-                                    <td>Idris Akbar Adyusman</td>
-                                    <td>082169670012</td>
-                                    <td>31 Agustus 2000</td>
-                                    <td>Kasir</td>
-                                    <td>Kasir</td>
-                                    <td class="text-center"><span>
-                                            <v-btn icon>
-                                                <v-icon>edit</v-icon>
-                                            </v-btn>
-                                        </span>
-                                        <v-btn icon>
-                                            <v-icon>delete</v-icon>
-                                        </v-btn>
-                                    </td>
                                 </tr>
                             </tbody>
                         </template>
