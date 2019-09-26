@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\pegawai;
 use Illuminate\Http\Request;
 
 class PegawaiController extends Controller
@@ -13,7 +13,8 @@ class PegawaiController extends Controller
      */
     public function index()
     {
-        //
+        $pegawais = pegawai::all();
+        return view('pegawai')->with('pegawais', $pegawais);
     }
 
     /**
