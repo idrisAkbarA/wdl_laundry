@@ -35,7 +35,10 @@ class PegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form= $request->input();
+        pegawai::create(['nama'=>$form['nama'],'hp'=>$form['hp'],'loket'=>$form['loket']]);
+        $pegawais = pegawai::all();
+        return view('pegawai')->with('pegawais', $pegawais);
     }
 
     /**

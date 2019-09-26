@@ -23,7 +23,7 @@ Pegawai
     </v-tooltip>
     {{-- end tooltip --}}
     @if (count($pegawais)>0)
-    @foreach ($pegawais as $pegawai)
+    
     <v-simple-table style="background-color:transparent !important">
         <template v-slot:default>
             <thead>
@@ -37,6 +37,7 @@ Pegawai
                 </tr>
             </thead>
             <tbody>
+                    @foreach ($pegawais as $pegawai)
                 <tr>
                     <td>{{$pegawai->id}}</td>
                     <td>{{$pegawai->nama}}</td>
@@ -53,10 +54,11 @@ Pegawai
                         </v-btn>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </template>
     </v-simple-table>
-    @endforeach
+    
 
     @else
     <p>Belum Ada Pegawai</p>
@@ -69,26 +71,29 @@ Pegawai
 
     <v-bottom-sheet v-model="sheet">
         <v-sheet style="margin-top: -2em">
+            <v-form action="/pegawai" method="post">
+                @csrf
             <div class="mt-5" style="height:3em">
                 <p class="blue--text font-weight-bold body-1 pa-4">Tambahkan Pegawai</p>
             </div>
             <div class="mx-5">
                 <v-row rows="12" sm="6" md="3">
                     <v-col cols="12" lg="4" sm="6" md="4">
-                        <v-text-field label="Nama" prepend-inner-icon="person" filled></v-text-field>
+                        <v-text-field label="Nama" name="nama" prepend-inner-icon="person" filled></v-text-field>
                     </v-col>
                     <v-col cols="12" lg="4" sm="6" md="4">
-                        <v-text-field label="Nomor HP" prepend-inner-icon="phone" filled></v-text-field>
+                        <v-text-field label="Nomor HP" name="hp" prepend-inner-icon="phone" filled></v-text-field>
                     </v-col>
 
                     <v-col cols="12" lg="4" sm="6" md="4">
-                        <v-text-field label="Jabatan" prepend-inner-icon="assignment" filled></v-text-field>
+                        <v-text-field label="Nama Loket" name="loket" prepend-inner-icon="store" filled></v-text-field>
                     </v-col>
                 </v-row>
             </div>
             <div class="pl-4">
-                <v-btn class="mb-6" color="blue" dark @click="sheet = !sheet">Tambahkan</v-btn>
-            </div>
+                <v-btn type="submit" class="mb-6" color="blue" dark @click="sheet = !sheet">Tambahkan</v-btn>
+            </div> 
+        </v-form>
         </v-sheet>
     </v-bottom-sheet>
 </div>
