@@ -1854,9 +1854,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  data: function data() {
+    return {
+      itemsPerPageOptions: [4, 8, 12],
+      itemsPerPage: 4,
+      desserts: [{
+        name: 'Frozen Yogurt',
+        calories: 159
+      }, {
+        name: 'Ice cream sandwich',
+        calories: 237
+      }, {
+        name: 'Eclair',
+        calories: 262
+      }, {
+        name: 'Cupcake',
+        calories: 305
+      }, {
+        name: 'Gingerbread',
+        calories: 356
+      }, {
+        name: 'Jelly bean',
+        calories: 375
+      }, {
+        name: 'Lollipop',
+        calories: 392
+      }, {
+        name: 'Honeycomb',
+        calories: 408
+      }, {
+        name: 'Donut',
+        calories: 452
+      }, {
+        name: 'KitKat',
+        calories: 518
+      }]
+    };
   }
 });
 
@@ -37156,32 +37193,40 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
+  return _c("v-simple-table", {
+    attrs: { height: "300px" },
+    scopedSlots: _vm._u([
+      {
+        key: "default",
+        fn: function() {
+          return [
+            _c("thead", [
+              _c("tr", [
+                _c("th", { staticClass: "text-left" }, [_vm._v("Name")]),
+                _vm._v(" "),
+                _c("th", { staticClass: "text-left" }, [_vm._v("Calories")])
+              ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
-          ])
-        ])
-      ])
+            _c(
+              "tbody",
+              _vm._l(_vm.desserts, function(item) {
+                return _c("tr", { key: item.name }, [
+                  _c("td", [_vm._v(_vm._s(item.name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(item.calories))])
+                ])
+              }),
+              0
+            )
+          ]
+        },
+        proxy: true
+      }
     ])
-  }
-]
+  })
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

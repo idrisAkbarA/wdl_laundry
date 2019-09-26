@@ -16,6 +16,7 @@ class CreateJasa extends Migration
         Schema::create('jasas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama_jasa');
+            $table->string('satuan');
             $table->double('harga');
             $table->timestamps();
         });
