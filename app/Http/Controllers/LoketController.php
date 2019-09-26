@@ -36,7 +36,11 @@ class loketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form = $request->input();
+        //print_r($form['nama']);
+        loket::create(['nama'=>$form['nama'],'alamat'=>$form['alamat'],'hp'=>$form['hp'],'status'=>'aktif']);
+        $lokets = loket::all();
+        return view('daftarLoket')->with('lokets', $lokets);
     }
 
     /**

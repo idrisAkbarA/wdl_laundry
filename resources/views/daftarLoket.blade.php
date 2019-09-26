@@ -9,6 +9,8 @@ Daftar Loket
 @endsection
 
 @section('content')
+
+
 <v-container>
         {{-- tooltip for FAB --}}
     <v-tooltip left>
@@ -50,7 +52,7 @@ Daftar Loket
                                             <td>{{$loket->nama}}</td>
                                             <td>{{$loket->hp}}</td>
                                             <td>{{$loket->alamat}}</td>
-                                            <td>{{$loket->created_at}}r</td>
+                                            <td>{{$loket->created_at}}</td>
                                             <td>asdasdas</td>
                                             <td class="text-center"><span>
                                                     <v-btn icon>
@@ -83,28 +85,33 @@ Daftar Loket
 
     <v-bottom-sheet v-model="sheet">
         <v-sheet class="text-left">
+                <v-form action="/lokets" method="POST">
+                        @csrf
             <div class="mt-5" style="height:3em">
                 <p class="blue--text font-weight-bold body-1 pa-4">Tambahkan Loket</p>
             </div>
             <div class="mx-5">
+
                 <v-row rows="12" sm="6" md="3">
                     <v-col cols="12" lg="3" sm="6" md="3">
-                        <v-text-field label="Nama Loket" prepend-inner-icon="store" filled></v-text-field>
+                        <v-text-field name="nama" label="Nama Loket" prepend-inner-icon="store" filled></v-text-field>
                     </v-col>
                     <v-col cols="12" lg="3" sm="6" md="3">
-                        <v-text-field label="Alamat" prepend-inner-icon="room" filled></v-text-field>
+                        <v-text-field name="alamat" label="Alamat" prepend-inner-icon="room" filled></v-text-field>
                     </v-col>
                     <v-col cols="12" lg="3" sm="6" md="3">
-                        <v-text-field label="Nomor HP" prepend-inner-icon="phone" filled></v-text-field>
+                        <v-text-field type="tel" name="hp" label="Nomor HP" prepend-inner-icon="phone" filled></v-text-field>
                     </v-col>
                     <v-col cols="12" lg="3" sm="6" md="3">
-                        <v-text-field label="Email" prepend-inner-icon="email" filled></v-text-field>
+                        <v-text-field name="email" label="Email" prepend-inner-icon="email" type="email" filled></v-text-field>
                     </v-col>
                 </v-row>
+
             </div>
             <div class="pl-4">
-                <v-btn class="mb-6" color="blue" dark @click="sheet = !sheet">Tambahkan</v-btn>
+                <v-btn type="submit" class="mb-6" color="blue" dark @click="sheet = !sheet">Tambahkan</v-btn>
             </div>
+        </v-form>
 
 
         </v-sheet>

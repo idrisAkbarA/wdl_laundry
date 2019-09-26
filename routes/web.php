@@ -42,6 +42,8 @@ Route::get('/riwayat', function (){
     return view('riwayat');
 });
 
+Route::resource('lokets','loketController');
+
 
 Auth::routes();
 
