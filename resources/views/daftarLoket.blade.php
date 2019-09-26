@@ -10,9 +10,19 @@ Daftar Loket
 
 @section('content')
 <v-container>
-        <v-btn class="ma-4" color="blue" dark @click="sheet = !sheet">
-                Tambahkan Loket
-        </v-btn>
+        {{-- tooltip for FAB --}}
+    <v-tooltip left>
+            <template v-slot:activator="{ on }">
+                {{-- floating action button --}}
+                <v-btn style="margin-bottom:4em;margin-left:5em;" absolute fixed dark fab bottom right color="blue" dark v-on="on"
+                    @click="sheet = !sheet">
+                    <v-icon>mdi-plus</v-icon>
+                </v-btn>
+                {{-- end FAB --}}
+            </template>
+            <span>Tambahkan Loket</span>
+        </v-tooltip>
+        {{-- end tooltip --}}
     <v-expansion-panels focusable popout>
 
         @if(count($lokets)>0)

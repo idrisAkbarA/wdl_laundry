@@ -9,9 +9,20 @@ Pegawai
 
 @section('content')
 <v-container class="mt-5">
-        <v-btn class="mb-4" color="blue" dark @click="sheet = !sheet">
-                Tambahkan Pegawai
+    {{-- tooltip for FAB --}}
+    <v-tooltip left>
+        <template v-slot:activator="{ on }">
+            {{-- floating action button --}}
+            <v-btn style="margin-bottom:4em;margin-left:5em;" absolute fixed dark fab bottom right color="blue" dark v-on="on"
+                @click="sheet = !sheet">
+                <v-icon>mdi-plus</v-icon>
             </v-btn>
+            {{-- end FAB --}}
+        </template>
+        <span>Tambahkan Pegawai</span>
+    </v-tooltip>
+    {{-- end tooltip --}}
+    
     <v-simple-table style="background-color:transparent !important">
         <template v-slot:default>
             <thead>
@@ -27,22 +38,6 @@ Pegawai
             <tbody>
                 <tr>
                     <td>1. </td>
-                    <td>Idris Akbar Adyusman</td>
-                    <td>082169670012</td>
-                    <td>31 Agustus 2000</td>
-                    <td>Kasir</td>
-                    <td class="text-center"><span>
-                            <v-btn icon>
-                                <v-icon>edit</v-icon>
-                            </v-btn>
-                        </span>
-                        <v-btn icon>
-                            <v-icon>delete</v-icon>
-                        </v-btn>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2. </td>
                     <td>Idris Akbar Adyusman</td>
                     <td>082169670012</td>
                     <td>31 Agustus 2000</td>
