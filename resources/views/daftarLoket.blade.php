@@ -29,7 +29,7 @@ Daftar Loket
         @if(count($lokets)>0)
         <v-container>
                 <v-toolbar dense floating dark color="blue lighten-2">
-                    <v-text-field hide-details prepend-icon="search" single-line></v-text-field>
+                    <v-text-field label="Cari loket" hide-details prepend-icon="search" single-line></v-text-field>
                 </v-toolbar>
             </v-container>
             <v-container>
@@ -93,6 +93,7 @@ Daftar Loket
 
     <v-bottom-sheet v-model="sheet">
         <v-sheet class="text-left" style="margin-top: -2em">
+            <v-form action="/lokets" method="post">@csrf
             <div class="mt-5" style="height:3em">
                 <p class="blue--text font-weight-bold body-1 pa-4">Tambahkan Loket</p>
             </div>
