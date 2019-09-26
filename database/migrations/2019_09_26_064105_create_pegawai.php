@@ -13,12 +13,11 @@ class CreatePegawai extends Migration
      */
     public function up()
     {
-        Schema::create('pegawai', function (Blueprint $table) {
+        Schema::create('pegawais', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->String('nama');
             $table->String('hp');
-            $table->Date('tgl_masuk');
-            $table->Date('loket'); //nama loket
+            $table->String('loket'); //nama loket
             $table->timestamps();
         });
     }

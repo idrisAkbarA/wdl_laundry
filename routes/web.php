@@ -21,9 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/kasir', function (){
     return view('kasir');
 });
-Route::get('/pegawai', function (){
-    return view('pegawai');
-});
+Route::get('/pegawai', 'PegawaiController@index');
 Route::get('/pelanggan', function (){
     return view('pelanggan');
 });
@@ -48,3 +46,5 @@ Route::resource('lokets','loketController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/pegawai', 'PegawaiController');

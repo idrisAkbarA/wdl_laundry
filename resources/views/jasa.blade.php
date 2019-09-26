@@ -72,7 +72,7 @@ Jasa
 <div class="text-center">
 
     <v-bottom-sheet v-model="sheet">
-        <v-sheet class="text-left">
+        <v-sheet class="text-left" style="margin-top: -2em">
             <div class="mt-5" style="height:3em">
                 <p class="blue--text font-weight-bold body-1 pa-4">Tambahkan Jasa</p>
             </div>
