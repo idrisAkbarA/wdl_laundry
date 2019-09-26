@@ -50,7 +50,7 @@ Laporan
                                 <v-dialog ref="dialog" v-model="modal" :return-value.sync="date" persistent
                                     width="290px">
                                     <template v-slot:activator="{ on }">
-                                        <v-text-field v-model="date" label="cari" prepend-inner-icon="search" readonly
+                                        <v-text-field hide-details v-model="date" label="cari" prepend-inner-icon="search" readonly
                                             filled v-on="on" class="minus"></v-text-field>
                                     </template>
                                     <v-date-picker v-model="date" scrollable>
@@ -65,7 +65,7 @@ Laporan
                                 <v-dialog ref="dialog" v-model="modal" :return-value.sync="date" persistent
                                     width="290px">
                                     <template v-slot:activator="{ on }">
-                                        <v-text-field v-model="date" label="Dari" prepend-inner-icon="search" readonly
+                                        <v-text-field hide-details v-model="date" label="Dari" prepend-inner-icon="search" readonly
                                             filled v-on="on" class="minus"></v-text-field>
                                     </template>
                                     <v-date-picker v-model="date" scrollable>
@@ -80,7 +80,7 @@ Laporan
                                 <v-dialog ref="dialog" v-model="modal" :return-value.sync="date" persistent
                                     width="290px">
                                     <template v-slot:activator="{ on }">
-                                        <v-text-field v-model="date" label="Sampai" prepend-inner-icon="search" readonly
+                                        <v-text-field hide-details v-model="date" label="Sampai" prepend-inner-icon="search" readonly
                                             filled v-on="on" class="minus"></v-text-field>
                                     </template>
                                     <v-date-picker v-model="date" scrollable>
