@@ -18,7 +18,7 @@ class loketController extends Controller
     use RegistersUsers;
     public function index()
     {
-        $lokets = loket::all();
+        $lokets = loket::where('status','aktif')->get();
         return view('daftarLoket')->with('lokets', $lokets);
     }
 
@@ -91,7 +91,8 @@ class loketController extends Controller
      */
     public function destroy($nama)
     {
-        loket::where('nama',$nama)->delete();
+        loket::where('nama',$nama)->update(['status'=>'tidak_aktif']);
+        User::where('name',$nama)->delete();
         $lokets = loket::all();
         return view('daftarLoket')->with('lokets', $lokets);
 

@@ -60,7 +60,7 @@ Daftar Loket
                                     <td>{{$loket->hp}}</td>
                                     <td>{{$loket->alamat}}</td>
                                     <td>{{$loket->created_at}}r</td>
-                                    <td>asdasdas</td>
+                                    <td>{{"sementara"}}</td>
                                     <td class="text-center"><span>
 
                                         {{-- edit loket pakai yg ini--}}
@@ -79,7 +79,7 @@ Daftar Loket
 
                                         @php
                                             $trigger = "<v-btn icon @click=";
-                                            $isi = $trigger."\"deleteLoket('".$loket->nama."')\" >";
+                                            $isi = $trigger."\"initDeleteLoket('".$loket->nama."')\" >";
                                         @endphp
 
                                     {!! $isi !!}
@@ -98,6 +98,42 @@ Daftar Loket
 
             </v-expansion-panel-content>
         </v-expansion-panel>
+        <v-dialog
+      v-model="dialog"
+      max-width="400"
+    >
+      <v-card>
+          <v-sheet color="error" dark>
+                <v-card-title class="headline">Hapus Loket @{{del}} </v-card-title>
+          </v-sheet>
+
+
+        <v-card-text>
+          apakah anda yakin akan menghapus loket @{{del}}?
+        </v-card-text>
+
+        <v-card-actions>
+
+
+          <v-btn
+            color="green darken-1"
+            text
+            @click="dialog = false"
+          >
+            Batal
+          </v-btn>
+          <v-spacer></v-spacer>
+          <v-btn height="50"
+            width="120"
+            color="error"
+
+            @click="deleteLoket"
+          >
+            <v-icon>delete</v-icon>Hapus
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
     @endforeach
 </v-expansion-panels>
             </v-container>
@@ -107,38 +143,7 @@ Daftar Loket
 
 </v-container>
 
-<v-dialog
-      v-model="dialog"
-      max-width="290"
-    >
-      <v-card>
-        <v-card-title class="headline">Use Google's location service?</v-card-title>
 
-        <v-card-text>
-          Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
-        </v-card-text>
-
-        <v-card-actions>
-          <div class="flex-grow-1"></div>
-
-          <v-btn
-            color="green darken-1"
-            text
-            @click="dialog = false"
-          >
-            Disagree
-          </v-btn>
-
-          <v-btn
-            color="green darken-1"
-            text
-            @click="dialog = false"
-          >
-            Agree
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
 {{-- bottom sheet --}}
 <div class="text-center">
 

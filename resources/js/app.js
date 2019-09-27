@@ -9,6 +9,7 @@ require('./bootstrap');
 window.Vue = require('vue');
 import Vue from 'vue'
 import Vuetify from 'vuetify'
+import Axios from 'axios';
 
 Vue.use(Vuetify)
 
@@ -40,7 +41,7 @@ const app = new Vue({
         sheet2: false,
         dialog:false,
 
-        delete:'nama untuk dihapus',
+        del:'nama untuk dihapus',
         //animasi
         fad: false,
         loading:false,
@@ -64,8 +65,19 @@ const app = new Vue({
       },
     methods:{
 
-        deleteLoket(id){
-            this.delete= id;
+        deleteLoket(){
+
+            this.dialog = false;
+            var url = '/lokets/'+this.del;
+            Axios({
+                method: 'delete',
+                url: url
+            }).then(function(){
+                window.location.href = '/daftarLoket';
+            });
+        },
+        initDeleteLoket(id){
+            this.del= id;
             this.dialog = true;
         },
 

@@ -85830,6 +85830,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
 /* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuetify__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -85838,6 +85840,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_1___default.a);
@@ -85866,7 +85869,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     return {
       sheet2: false,
       dialog: false,
-      "delete": 'nama untuk dihapus',
+      del: 'nama untuk dihapus',
       //animasi
       fad: false,
       loading: false,
@@ -85894,8 +85897,18 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     }, 100);
   },
   methods: {
-    deleteLoket: function deleteLoket(id) {
-      this["delete"] = id;
+    deleteLoket: function deleteLoket() {
+      this.dialog = false;
+      var url = '/lokets/' + this.del;
+      axios__WEBPACK_IMPORTED_MODULE_2___default()({
+        method: 'delete',
+        url: url
+      }).then(function () {
+        window.location.href = '/daftarLoket';
+      });
+    },
+    initDeleteLoket: function initDeleteLoket(id) {
+      this.del = id;
       this.dialog = true;
     },
     editLoket: function editLoket(id) {
