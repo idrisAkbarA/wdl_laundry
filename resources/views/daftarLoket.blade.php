@@ -85,9 +85,6 @@ Daftar Loket
                                     {!! $isi !!}
                                     <v-icon >delete</v-icon>
                                             </v-btn>
-
-
-
                                     </td>
                                 </tr>
                             </tbody>
@@ -96,23 +93,8 @@ Daftar Loket
                 </v-container>
                 {{-- Akhir Tabel --}}
 
-            </v-expansion-panel-content>
-        </v-expansion-panel>
-<<<<<<< HEAD
-        <v-dialog
-=======
-    @endforeach
-</v-expansion-panels>
-            </v-container>
-    @else
-    <P>Belum ada Loket</P>
-    @endif
-
-</v-container>
-
 {{-- popup dialog --}}
 <v-dialog
->>>>>>> 6268ecac7461aff9488b88edc5a3a3e115971243
       v-model="dialog"
       max-width="400"
     >
@@ -148,25 +130,16 @@ Daftar Loket
         </v-card-actions>
       </v-card>
     </v-dialog>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    @endforeach
+</v-expansion-panel-content>
+</v-expansion-panel>
+@endforeach
 </v-expansion-panels>
-            </v-container>
-    @else
-    <P>Belum ada Loket</P>
-    @endif
+    </v-container>
+@else
+<P>Belum ada Loket</P>
+@endif
 
 </v-container>
-
-
-=======
-    {{-- end popup --}}
->>>>>>> 6268ecac7461aff9488b88edc5a3a3e115971243
-=======
-    {{-- end popup --}}
->>>>>>> 6268ecac7461aff9488b88edc5a3a3e115971243
-{{-- bottom sheet --}}
 <div class="text-center">
 
     <v-bottom-sheet v-model="sheet">
