@@ -85864,6 +85864,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   vuetify: vuetify,
   data: function data() {
     return {
+      dialog: false,
+      "delete": 'nama untuk dihapus',
+      //animasi
       fad: false,
       loading: false,
       // navigation
@@ -85890,6 +85893,10 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     }, 100);
   },
   methods: {
+    deleteLoket: function deleteLoket(id) {
+      this["delete"] = id;
+      this.dialog = true;
+    },
     firstFunction: function firstFunction(_callback) {
       // do some asynchronous work
       // and when the asynchronous stuff is complete
@@ -86090,8 +86097,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\APK\Web-Root\wdl_laundry\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\APK\Web-Root\wdl_laundry\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! A:\Programming\Web-Root\wdl_laundry\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! A:\Programming\Web-Root\wdl_laundry\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -36,6 +36,11 @@ const app = new Vue({
     el: '#app',
     vuetify,
     data: () => ({
+
+        dialog:false,
+
+        delete:'nama untuk dihapus',
+        //animasi
         fad: false,
         loading:false,
         // navigation
@@ -57,6 +62,12 @@ const app = new Vue({
         setTimeout(() => this.fad = !this.fad, 100)
       },
     methods:{
+
+        deleteLoket(id){
+            this.delete= id;
+            this.dialog = true;
+        },
+
         firstFunction(_callback){
             // do some asynchronous work
             // and when the asynchronous stuff is complete
