@@ -85902,6 +85902,22 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       this["delete"] = id;
       this.sheet2 = true;
     },
+    deleteJasa: function deleteJasa(id) {
+      this["delete"] = id;
+      this.dialog = true;
+    },
+    editJasa: function editJasa(id) {
+      this["delete"] = id;
+      this.sheet2 = true;
+    },
+    deletePegawai: function deletePegawai(id) {
+      this["delete"] = id;
+      this.dialog = true;
+    },
+    editPegawai: function editPegawai(id) {
+      this["delete"] = id;
+      this.sheet2 = true;
+    },
     firstFunction: function firstFunction(_callback) {
       // do some asynchronous work
       // and when the asynchronous stuff is complete
