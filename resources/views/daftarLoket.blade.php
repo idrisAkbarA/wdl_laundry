@@ -66,9 +66,12 @@ Daftar Loket
                                                 <v-icon>edit</v-icon>
                                             </v-btn>
                                         </span>
-                                        <v-btn icon>
-                                            <v-icon>delete</v-icon>
-                                        </v-btn>
+                                    <v-form action="/lokets/{{$loket->nama}}">
+
+                                        <v-btn type="submit" icon>
+                                                <v-icon >delete</v-icon>
+                                            </v-btn>
+                                        </v-form>
                                     </td>
                                 </tr>
                             </tbody>
