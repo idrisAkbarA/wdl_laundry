@@ -22,14 +22,14 @@ Route::get('/kasir', function (){
     return view('kasir');
 });
 Route::get('/pegawai', 'PegawaiController@index');
+
 Route::get('/pelanggan', function (){
     return view('pelanggan');
 });
 Route::get('/daftarLoket', 'loketController@index');
 
-Route::get('/jasa', function (){
-    return view('jasa');
-});
+Route::get('/jasa', 'JasaController@index');
+
 Route::get('/laporan', function (){
     return view('laporan');
 });
@@ -48,3 +48,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/pegawai', 'PegawaiController');
+
+Route::resource('/jasa', 'JasaController');
