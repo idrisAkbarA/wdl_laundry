@@ -89,8 +89,11 @@ class loketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($nama)
     {
-        //
+        loket::where('nama',$nama)->delete();
+        $lokets = loket::all();
+        return view('daftarLoket')->with('lokets', $lokets);
+
     }
 }
