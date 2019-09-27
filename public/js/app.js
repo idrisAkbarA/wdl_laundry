@@ -85864,6 +85864,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   vuetify: vuetify,
   data: function data() {
     return {
+      sheet2: false,
       dialog: false,
       "delete": 'nama untuk dihapus',
       //animasi
@@ -85896,6 +85897,10 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     deleteLoket: function deleteLoket(id) {
       this["delete"] = id;
       this.dialog = true;
+    },
+    editLoket: function editLoket(id) {
+      this["delete"] = id;
+      this.sheet2 = true;
     },
     firstFunction: function firstFunction(_callback) {
       // do some asynchronous work
