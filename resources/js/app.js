@@ -37,6 +37,7 @@ const app = new Vue({
     vuetify,
     data: () => ({
 
+        sheet2: false,
         dialog:false,
 
         delete:'nama untuk dihapus',
@@ -66,6 +67,11 @@ const app = new Vue({
         deleteLoket(id){
             this.delete= id;
             this.dialog = true;
+        },
+
+        editLoket(id){
+            this.delete= id;
+            this.sheet2 = true;
         },
 
         firstFunction(_callback){
