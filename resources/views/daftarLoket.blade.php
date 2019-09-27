@@ -149,6 +149,7 @@ Daftar Loket
       </v-card>
     </v-dialog>
 <<<<<<< HEAD
+<<<<<<< HEAD
     @endforeach
 </v-expansion-panels>
             </v-container>
@@ -159,6 +160,9 @@ Daftar Loket
 </v-container>
 
 
+=======
+    {{-- end popup --}}
+>>>>>>> 6268ecac7461aff9488b88edc5a3a3e115971243
 =======
     {{-- end popup --}}
 >>>>>>> 6268ecac7461aff9488b88edc5a3a3e115971243
