@@ -38,23 +38,34 @@ Jasa
                     <td>{{$jasa->satuan}}</td>
                     <td>{{$jasa->harga}}</td>
                     <td class="text-center"><span>
+                            @php
+                            $trigger = "<v-btn icon @click=";
+                            $isi = $trigger." \"editJasa('".$jasa->nama."')\" >";
+                                @endphp
+                                {!! $isi !!}
+                                <v-tooltip top>
+                                    <template v-slot:activator="{ on }">
+                                        <v-btn icon v-on="on">
+                                            <v-icon>edit</v-icon>
+                                        </v-btn>
+                                    </template>
+                                    <span>Edit</span>
+                                </v-tooltip>
+                        </span>
+                        @php
+                        $trigger = "<v-btn icon @click=";
+                                    $isi = $trigger." \"deleteJasa('".$jasa->nama."')\" >";
+                            @endphp
+
+                            {!! $isi !!}
                             <v-tooltip top>
                                 <template v-slot:activator="{ on }">
                                     <v-btn icon v-on="on">
-                                        <v-icon>edit</v-icon>
+                                        <v-icon>delete</v-icon>
                                     </v-btn>
                                 </template>
-                                <span>Edit</span>
+                                <span>Delete</span>
                             </v-tooltip>
-                        </span>
-                        <v-tooltip top>
-                            <template v-slot:activator="{ on }">
-                                <v-btn icon v-on="on">
-                                    <v-icon>delete</v-icon>
-                                </v-btn>
-                            </template>
-                            <span>Delete</span>
-                        </v-tooltip>
                     </td>
                 </tr>
                 @endforeach
@@ -73,6 +84,31 @@ Jasa
 
 <div class="text-center">
 
+    {{-- popup dialog --}}
+    <v-dialog v-model="dialog" max-width="290">
+        <v-card>
+            <v-card-title class="headline">Use Google's location service?</v-card-title>
+
+            <v-card-text>
+                Let Google help apps determine location. This means sending anonymous location data to Google, even when
+                no apps are running.
+            </v-card-text>
+
+            <v-card-actions>
+                <div class="flex-grow-1"></div>
+
+                <v-btn color="green darken-1" text @click="dialog = false">
+                    Disagree
+                </v-btn>
+
+                <v-btn color="green darken-1" text @click="dialog = false">
+                    Agree
+                </v-btn>
+            </v-card-actions>
+        </v-card>
+    </v-dialog>
+    {{-- end popup --}}
+
     <v-bottom-sheet v-model="sheet">
         <v-sheet class="text-left" style="margin-top: -2em">
             <v-form action="/jasa" method="post">
@@ -83,7 +119,8 @@ Jasa
                 <div class="mx-5">
                     <v-row rows="12" sm="6" md="3">
                         <v-col cols="12" lg="4" sm="6" md="3">
-                            <v-text-field label="Jasa" name="nama_jasa" prepend-inner-icon="local_laundry_service" filled>
+                            <v-text-field label="Jasa" name="nama_jasa" prepend-inner-icon="local_laundry_service"
+                                filled>
                             </v-text-field>
                         </v-col>
                         <v-col cols="12" lg="4" sm="6" md="3">
@@ -103,4 +140,42 @@ Jasa
         </v-sheet>
     </v-bottom-sheet>
 </div>
+{{-- sheet 2 disini--}}
+<div class="text-center">
+
+    <v-bottom-sheet v-model="sheet2">
+        <v-sheet class="text-left" style="margin-top: -2em">
+            <v-form action="/jasas" method="post">@csrf
+                <div class="mt-5" style="height:3em">
+                    <p class="blue--text font-weight-bold body-1 pa-4">Tambahkan Jasa</p>
+                </div>
+                <div class="mx-5">
+
+                    <v-row rows="12" sm="6" md="3">
+                        <v-col cols="12" lg="4" sm="6" md="3">
+                            <v-text-field label="Jasa" name="nama_jasa" prepend-inner-icon="local_laundry_service"
+                                filled>
+                            </v-text-field>
+                        </v-col>
+                        <v-col cols="12" lg="4" sm="6" md="3">
+                            <v-text-field label="Satuan" name="satuan" prepend-inner-icon="layers" filled>
+                            </v-text-field>
+                        </v-col>
+                        <v-col cols="12" lg="4" sm="6" md="3">
+                            <v-text-field label="Harga Satuan" name="harga" prepend-inner-icon="attach_money" filled>
+                            </v-text-field>
+                        </v-col>
+                    </v-row>
+
+                </div>
+                <div class="pl-4">
+                    <v-btn type="submit" class="mb-6" color="blue" dark @click="sheet = !sheet">Tambahkan</v-btn>
+                </div>
+            </v-form>
+
+
+        </v-sheet>
+    </v-bottom-sheet>
+</div>
+{{-- akhir bottom sheet 2--}}
 @endsection

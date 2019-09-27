@@ -85,6 +85,24 @@ const app = new Vue({
             this.delete= id;
             this.sheet2 = true;
         },
+        deleteJasa(id){
+            this.delete= id;
+            this.dialog = true;
+        },
+
+        editJasa(id){
+            this.delete= id;
+            this.sheet2 = true;
+        },
+        deletePegawai(id){
+            this.delete= id;
+            this.dialog = true;
+        },
+
+        editPegawai(id){
+            this.delete= id;
+            this.sheet2 = true;
+        },
 
         firstFunction(_callback){
             // do some asynchronous work
