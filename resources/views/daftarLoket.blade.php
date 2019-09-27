@@ -97,6 +97,7 @@ Daftar Loket
 
 </v-container>
 
+{{-- popup dialog --}}
 <v-dialog
       v-model="dialog"
       max-width="290"
@@ -129,6 +130,7 @@ Daftar Loket
         </v-card-actions>
       </v-card>
     </v-dialog>
+    {{-- end popup --}}
 {{-- bottom sheet --}}
 <div class="text-center">
 
