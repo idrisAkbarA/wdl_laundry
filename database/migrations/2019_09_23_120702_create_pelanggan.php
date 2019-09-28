@@ -15,12 +15,12 @@ class CreatePelanggan extends Migration
     {
         Schema::create('pelanggans', function (Blueprint $table) {
             $table->String('id')->unique(); // no hp sebagai unik id
-            $table->String('id_member')->unique(); // nama loket + increment
+            $table->String('id_member')->unique()->nullable(); // nama loket + increment
             $table->String('nama');
             $table->String('alamat');
             $table->String('jml_transaksi');
             $table->enum('member',['member','bukan_member']);
-            $table->Double('kuota'); //dalam kg
+            $table->Double('kuota')->nullable(); //dalam kg
             $table->timestamps();
         });
     }

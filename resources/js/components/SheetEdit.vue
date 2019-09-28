@@ -38,10 +38,10 @@
 import Axios from 'axios';
     export default {
 
-        http: {
-            headers: {
-            'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
-        }},
+        // http: {
+        //     headers: {
+        //     'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+        // }},
         data: () => ({
             action      :'',
             EditSheet   :false,

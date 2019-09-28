@@ -27,6 +27,7 @@ Vue.use(Vuetify)
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('ikarin-sheet', require('./components/SheetEdit.vue').default);
+Vue.component('order', require('./components/Order.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -53,3 +53,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/pegawai', 'PegawaiController');
 
 Route::resource('/jasa', 'JasaController');
+Route::get('/pelanggan/search', 'pelangganController@autoComplete');

@@ -3,8 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\pelanggan;
 
 class PelangganController extends Controller
 {
     //
+
+    public function autoComplete(Request $request){
+        $searchquery = $request->searchquery;
+        $data = pelanggan::where('nama','like','%'.$searchquery.'%')->get();
+        return response()->json($data);
+    }
+
 }
