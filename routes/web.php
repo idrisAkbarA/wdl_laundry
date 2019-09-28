@@ -30,6 +30,9 @@ Route::get('/daftarLoket', 'loketController@index');
 
 Route::get('/jasa', 'JasaController@index');
 
+Route::get('/belanja', function (){
+    return view('belanja');
+});
 Route::get('/laporan', function (){
     return view('laporan');
 });

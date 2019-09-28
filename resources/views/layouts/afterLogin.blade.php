@@ -65,6 +65,14 @@
                             <v-list-item-title>Jasa</v-list-item-title>
                         </v-list-item-content>
                     </v-list-item>
+                    <v-list-item @click="belanja()" class="@yield('belanja')">
+                        <v-list-item-action>
+                            <v-icon color="blue">shopping_cart</v-icon>
+                        </v-list-item-action>
+                        <v-list-item-content>
+                            <v-list-item-title>Belanja</v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
                     <v-list-item @click="laporan()" class="@yield('laporan')">
                         <v-list-item-action>
                             <v-icon color="blue">view_list</v-icon>

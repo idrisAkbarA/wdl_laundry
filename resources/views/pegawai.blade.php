@@ -37,9 +37,15 @@ Pegawai
                 </tr>
             </thead>
             <tbody>
+            @php
+                $i=0;
+            @endphp
                 @foreach ($pegawais as $pegawai)
+                @php
+                    $i=$i+1;
+                @endphp
                 <tr>
-                    <td>{{$pegawai->id}}</td>
+                    <td>{{$i}}</td>
                     <td>{{$pegawai->nama}}</td>
                     <td>{{$pegawai->hp}}</td>
                     <td>{{$pegawai->created_at}}</td>
@@ -61,7 +67,7 @@ Pegawai
                         </span>
                         @php
                         $trigger = "<v-btn icon @click=";
-                                    $isi = $trigger." \"deletePegawai('".$pegawai->nama."')\" >";
+                                    $isi = $trigger." \"initDeletePegawai('".$pegawai->nama."')\" >";
                             @endphp
 
                             {!! $isi !!}
@@ -75,41 +81,43 @@ Pegawai
                             </v-tooltip>
                     </td>
                 </tr>
-                @endforeach
             </tbody>
-        </template>
-    </v-simple-table>
+{{-- end table --}}
+{{-- popup dialog --}}
+<v-dialog v-model="dialog" max-width="400">
+        <v-card>
+            <v-sheet color="error" dark>
+                <v-card-title class="headline">Hapus Pegawai @{{buang}} </v-card-title>
+            </v-sheet>
 
 
-    @else
-    <p>Belum Ada Pegawai</p>
-    @endif
+            <v-card-text>
+                apakah anda yakin akan menghapus pegawai @{{buang}}?
+            </v-card-text>
+
+            <v-card-actions>
+
+
+                <v-btn color="green darken-1" text @click="dialog = false">
+                    Batal
+                </v-btn>
+                <v-spacer></v-spacer>
+                <v-btn height="50" width="120" color="error" @click="deletePegawai">
+                    <v-icon>delete</v-icon>Hapus
+                </v-btn>
+            </v-card-actions>
+        </v-card>
+    </v-dialog>
+@endforeach
+</template>
+</v-simple-table>
+</v-container>
+@else
+<P>Belum ada Pegawai</P>
+@endif
 
 </v-container>
-{{-- popup dialog --}}
-<v-dialog v-model="dialog" max-width="290">
-    <v-card>
-        <v-card-title class="headline">Use Google's location service?</v-card-title>
-
-        <v-card-text>
-            Let Google help apps determine location. This means sending anonymous location data to Google, even when no
-            apps are running.
-        </v-card-text>
-
-        <v-card-actions>
-            <div class="flex-grow-1"></div>
-
-            <v-btn color="green darken-1" text @click="dialog = false">
-                Disagree
-            </v-btn>
-
-            <v-btn color="green darken-1" text @click="dialog = false">
-                Agree
-            </v-btn>
-        </v-card-actions>
-    </v-card>
-</v-dialog>
-{{-- end popup --}}
+    {{-- end popup dialog --}}
 {{-- bottom sheet --}}
 <div class="text-center">
 

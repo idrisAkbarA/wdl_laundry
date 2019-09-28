@@ -93,7 +93,7 @@ class loketController extends Controller
     {
         loket::where('nama',$nama)->update(['status'=>'tidak_aktif']);
         User::where('name',$nama)->delete();
-        $lokets = loket::all();
+        $lokets = loket::where('status','aktif')->get();
         return view('daftarLoket')->with('lokets', $lokets);
 
     }

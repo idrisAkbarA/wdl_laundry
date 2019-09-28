@@ -81,8 +81,10 @@ class JasaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($nama)
     {
-        //
+        jasa::where('nama_jasa',$nama)->delete();
+        $jasas= jasa::all();
+        return view('jasa')->with('jasas', $jasas);
     }
 }

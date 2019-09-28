@@ -41,7 +41,8 @@ const app = new Vue({
         sheet2: false,
         dialog:false,
 
-        del:'nama untuk dihapus',
+        del:'nama loket untuk dihapus',
+        buang:'nama pegawai untuk dihapus',
         //animasi
         fad: false,
         loading:false,
@@ -85,8 +86,19 @@ const app = new Vue({
             this.delete= id;
             this.sheet2 = true;
         },
-        deleteJasa(id){
-            this.delete= id;
+        deleteJasa(){
+
+            this.dialog = false;
+            var url = '/jasa/'+this.del;
+            Axios({
+                method: 'delete',
+                url: url
+            }).then(function(){
+                window.location.href = '/jasa';
+            });
+        },
+        initDeleteJasa(id){
+            this.del= id;
             this.dialog = true;
         },
 
@@ -94,8 +106,18 @@ const app = new Vue({
             this.delete= id;
             this.sheet2 = true;
         },
-        deletePegawai(id){
-            this.delete= id;
+        deletePegawai(){
+            this.dialog = false;
+            var url = '/pegawai/'+this.buang;
+            Axios({
+                method: 'delete',
+                url: url
+            }).then(function(){
+                window.location.href = '/pegawai';
+            });
+        },
+        initDeletePegawai(id){
+            this.buang= id;
             this.dialog = true;
         },
 
@@ -151,6 +173,13 @@ const app = new Vue({
 
             this.firstFunction(function() {
                 window.location.href = '/jasa';
+            });
+        },
+        belanja(){
+
+
+            this.firstFunction(function() {
+                window.location.href = '/belanja';
             });
         },
         laporan(){

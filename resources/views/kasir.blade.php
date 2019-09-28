@@ -21,19 +21,19 @@ Kasir
                         {{-- dialog proses pembayaran --}}
                         <v-dialog v-model="dialog" persistent max-width="290">
                             <template v-slot:activator="{ on }">
-                                <v-btn color="blue" color="primary" dark v-on="on">proses pembayaran</v-btn>
+                                <v-btn color="blue" dark v-on="on">proses pembayaran</v-btn>
                             </template>
                             <v-card>
-                                <v-card-title class="headline">Pembayaran</v-card-title>
+                                <v-sheet color="blue" dark>
+                                    <v-card-title class="headline">Detail Pembayaran </v-card-title>
+                                </v-sheet>
                                 <v-card-text>
-                                    <v-text-field {{-- background-color="white" --}} label="Nomor Nota"
-                                        name="login" filled="true" prepend-inner-icon="receipt" type="text" required>
-                                    </v-text-field>
+                                    <v-btn color="blue" disabled>Cuci</v-btn>
                                 </v-card-text>
                                 <v-card-actions>
-                                    <v-btn color="green darken-1" text @click="dialog = false">Batal</v-btn>
+                                    <v-btn color="error" @click="dialog = false">Batal</v-btn>
                                     <v-spacer></v-spacer>
-                                    <v-btn color="green darken-1" text @click="dialog = false">Bayar</v-btn>
+                                    <v-btn color="primary" @click="dialog = false">Bayar</v-btn>
                                 </v-card-actions>
                             </v-card>
                         </v-dialog>

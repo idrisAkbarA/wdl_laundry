@@ -85869,7 +85869,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     return {
       sheet2: false,
       dialog: false,
-      del: 'nama untuk dihapus',
+      del: 'nama loket untuk dihapus',
+      buang: 'nama pegawai untuk dihapus',
       //animasi
       fad: false,
       loading: false,
@@ -85915,16 +85916,36 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       this["delete"] = id;
       this.sheet2 = true;
     },
-    deleteJasa: function deleteJasa(id) {
-      this["delete"] = id;
+    deleteJasa: function deleteJasa() {
+      this.dialog = false;
+      var url = '/jasa/' + this.del;
+      axios__WEBPACK_IMPORTED_MODULE_2___default()({
+        method: 'delete',
+        url: url
+      }).then(function () {
+        window.location.href = '/jasa';
+      });
+    },
+    initDeleteJasa: function initDeleteJasa(id) {
+      this.del = id;
       this.dialog = true;
     },
     editJasa: function editJasa(id) {
       this["delete"] = id;
       this.sheet2 = true;
     },
-    deletePegawai: function deletePegawai(id) {
-      this["delete"] = id;
+    deletePegawai: function deletePegawai() {
+      this.dialog = false;
+      var url = '/pegawai/' + this.buang;
+      axios__WEBPACK_IMPORTED_MODULE_2___default()({
+        method: 'delete',
+        url: url
+      }).then(function () {
+        window.location.href = '/pegawai';
+      });
+    },
+    initDeletePegawai: function initDeletePegawai(id) {
+      this.buang = id;
       this.dialog = true;
     },
     editPegawai: function editPegawai(id) {
@@ -85969,6 +85990,11 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     jasa: function jasa() {
       this.firstFunction(function () {
         window.location.href = '/jasa';
+      });
+    },
+    belanja: function belanja() {
+      this.firstFunction(function () {
+        window.location.href = '/belanja';
       });
     },
     laporan: function laporan() {
