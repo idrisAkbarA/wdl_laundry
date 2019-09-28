@@ -81,7 +81,7 @@ class loketController extends Controller
         //
     }
 
-    /**
+    /**1
      * Show the form for editing the specified resource.
      *
      * @param  int  $id

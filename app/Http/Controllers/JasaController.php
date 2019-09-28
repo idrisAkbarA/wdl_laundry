@@ -47,9 +47,10 @@ class JasaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($nama)
     {
-        //
+        $hasil = jasa::where('nama_jasa', $nama)->get();
+        return response([$hasil]);
     }
 
     /**
@@ -58,9 +59,15 @@ class JasaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($nama,Request $request)
     {
-        //
+        $form = $request->input();
+        
+        jasa::where('nama_jasa',$nama)->update(['nama_jasa'=>$form['nama_jasa'],'satuan'=>$form['satuan'],'harga'=>$form['harga']]);
+
+        $jasas = jasa::all();
+                
+        return view('jasa')->with('jasas', $jasas);
     }
 
     /**

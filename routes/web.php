@@ -53,3 +53,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/pegawai', 'PegawaiController');
 
 Route::resource('/jasa', 'JasaController');
+
+Route::post('/belanja', 'BelanjaController@belanja');

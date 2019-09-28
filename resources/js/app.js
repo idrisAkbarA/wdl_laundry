@@ -27,6 +27,7 @@ Vue.use(Vuetify)
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('ikarin-sheet', require('./components/SheetEdit.vue').default);
+Vue.component('ikarin-sheet-jasa', require('./components/SheetEditJasa.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -37,7 +38,13 @@ const vuetify = new Vuetify();
 const app = new Vue({
     el: '#app',
     vuetify,
+    http: {
+        headers: {
+        'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+    }},
     data: () => ({
+
+        barangBelanja:[{nama:"",kucing:"cimey"}],
 
         sheet2: false,
         dialog:false,
@@ -66,8 +73,18 @@ const app = new Vue({
         setTimeout(() => this.fad = !this.fad, 100)
       },
     methods:{
+
+        tambahBelanja(){
+            this.barangBelanja.push({nama:""})
+            console.log(this.barangBelanja)
+            
+        },
+
         callEditSheet(nama){
             this.$refs.child.edit(nama);
+        },
+        callEditSheetJasa(nama){
+            this.$refs.child2.edit(nama);
         },
 
         deleteLoket(){
@@ -109,6 +126,25 @@ const app = new Vue({
         editJasa(id){
             this.delete= id;
             this.sheet2 = true;
+        },
+        iniBelanja(){
+            var a = "";
+            var temp = "";
+            var i = "";
+            for(i=0;i<this.barangBelanja.length;i++){
+                temp = this.barangBelanja[0].nama;
+                a = a + "-" + temp;
+            }
+            Axios({
+                url: '/belanja',
+                method: 'post',
+                data:{
+                    data: a
+                }
+            }).then(function(response){
+                console.log(a);
+                console.log(response.data);
+            });
         },
         deletePegawai(){
             this.dialog = false;

@@ -1986,6 +1986,90 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SheetEditJasa.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SheetEditJasa.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  http: {
+    headers: {
+      'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+    }
+  },
+  data: function data() {
+    return {
+      action: '',
+      EditSheet: false,
+      nama_jasa: null,
+      satuan: null,
+      harga: null,
+      email: null
+    };
+  },
+  methods: {
+    edit: function edit(nama) {
+      var url = "/jasa/" + nama;
+      console.log(url);
+      var that = this;
+      axios__WEBPACK_IMPORTED_MODULE_0___default()({
+        method: 'get',
+        url: url
+      }).then(function (response) {
+        that.nama_jasa = response.data[0][0].nama_jasa;
+        that.satuan = response.data[0][0].satuan;
+        that.harga = response.data[0][0].harga;
+        that.action = '/jasa/' + that.nama_jasa + "/edit";
+        console.log(response.data);
+      });
+      console.log(nama);
+      this.EditSheet = true;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -37466,6 +37550,178 @@ var render = function() {
                                   _vm.email = $$v
                                 },
                                 expression: "email"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "pl-4" },
+                  [
+                    _c(
+                      "v-btn",
+                      {
+                        staticClass: "mb-6",
+                        attrs: { type: "submit", color: "blue", dark: "" },
+                        on: {
+                          click: function($event) {
+                            _vm.EditSheet = !_vm.EditSheet
+                          }
+                        }
+                      },
+                      [_vm._v("Simpan Perubahan")]
+                    )
+                  ],
+                  1
+                )
+              ])
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SheetEditJasa.vue?vue&type=template&id=25d7c3da&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SheetEditJasa.vue?vue&type=template&id=25d7c3da& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "text-center" },
+    [
+      _c(
+        "v-bottom-sheet",
+        {
+          model: {
+            value: _vm.EditSheet,
+            callback: function($$v) {
+              _vm.EditSheet = $$v
+            },
+            expression: "EditSheet"
+          }
+        },
+        [
+          _c(
+            "v-sheet",
+            { staticClass: "text-left", staticStyle: { "margin-top": "-2em" } },
+            [
+              _c("v-form", { attrs: { action: _vm.action, method: "get" } }, [
+                _c(
+                  "div",
+                  { staticClass: "mt-5", staticStyle: { height: "3em" } },
+                  [
+                    _c(
+                      "p",
+                      {
+                        staticClass: "blue--text font-weight-bold body-1 pa-4"
+                      },
+                      [_vm._v("Tambahkan Loket")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "mx-5" },
+                  [
+                    _c(
+                      "v-row",
+                      { attrs: { rows: "12", sm: "6", md: "3" } },
+                      [
+                        _c(
+                          "v-col",
+                          { attrs: { cols: "12", lg: "3", sm: "6", md: "3" } },
+                          [
+                            _c("v-text-field", {
+                              attrs: {
+                                name: "nama_jasa",
+                                label: "Nama Jasa",
+                                "prepend-inner-icon": "store",
+                                filled: ""
+                              },
+                              model: {
+                                value: _vm.nama_jasa,
+                                callback: function($$v) {
+                                  _vm.nama_jasa = $$v
+                                },
+                                expression: "nama_jasa"
+                              }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-col",
+                          { attrs: { cols: "12", lg: "3", sm: "6", md: "3" } },
+                          [
+                            _c("v-text-field", {
+                              attrs: {
+                                name: "satuan",
+                                label: "Satuan",
+                                "prepend-inner-icon": "room",
+                                filled: ""
+                              },
+                              model: {
+                                value: _vm.satuan,
+                                callback: function($$v) {
+                                  _vm.satuan = $$v
+                                },
+                                expression: "satuan"
+                              }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "v-col",
+                          { attrs: { cols: "12", lg: "3", sm: "6", md: "3" } },
+                          [
+                            _c("v-text-field", {
+                              attrs: {
+                                type: "tel",
+                                name: "harga",
+                                label: "Harga",
+                                "prepend-inner-icon": "phone",
+                                filled: ""
+                              },
+                              model: {
+                                value: _vm.harga,
+                                callback: function($$v) {
+                                  _vm.harga = $$v
+                                },
+                                expression: "harga"
                               }
                             })
                           ],
@@ -86139,6 +86395,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ikarin-sheet', __webpack_require__(/*! ./components/SheetEdit.vue */ "./resources/js/components/SheetEdit.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ikarin-sheet-jasa', __webpack_require__(/*! ./components/SheetEditJasa.vue */ "./resources/js/components/SheetEditJasa.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -86149,8 +86406,17 @@ var vuetify = new vuetify__WEBPACK_IMPORTED_MODULE_1___default.a();
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   vuetify: vuetify,
+  http: {
+    headers: {
+      'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+    }
+  },
   data: function data() {
     return {
+      barangBelanja: [{
+        nama: "",
+        kucing: "cimey"
+      }],
       sheet2: false,
       dialog: false,
       del: 'nama loket untuk dihapus',
@@ -86182,8 +86448,17 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     }, 100);
   },
   methods: {
+    tambahBelanja: function tambahBelanja() {
+      this.barangBelanja.push({
+        nama: ""
+      });
+      console.log(this.barangBelanja);
+    },
     callEditSheet: function callEditSheet(nama) {
       this.$refs.child.edit(nama);
+    },
+    callEditSheetJasa: function callEditSheetJasa(nama) {
+      this.$refs.child2.edit(nama);
     },
     deleteLoket: function deleteLoket() {
       this.dialog = false;
@@ -86220,6 +86495,27 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     editJasa: function editJasa(id) {
       this["delete"] = id;
       this.sheet2 = true;
+    },
+    iniBelanja: function iniBelanja() {
+      var a = "";
+      var temp = "";
+      var i = "";
+
+      for (i = 0; i < this.barangBelanja.length; i++) {
+        temp = this.barangBelanja[0].nama;
+        a = a + "-" + temp;
+      }
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default()({
+        url: '/belanja',
+        method: 'post',
+        data: {
+          data: a
+        }
+      }).then(function (response) {
+        console.log(a);
+        console.log(response.data);
+      });
     },
     deletePegawai: function deletePegawai() {
       this.dialog = false;
@@ -86495,6 +86791,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/SheetEditJasa.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/SheetEditJasa.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SheetEditJasa_vue_vue_type_template_id_25d7c3da___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SheetEditJasa.vue?vue&type=template&id=25d7c3da& */ "./resources/js/components/SheetEditJasa.vue?vue&type=template&id=25d7c3da&");
+/* harmony import */ var _SheetEditJasa_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SheetEditJasa.vue?vue&type=script&lang=js& */ "./resources/js/components/SheetEditJasa.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _SheetEditJasa_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SheetEditJasa_vue_vue_type_template_id_25d7c3da___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SheetEditJasa_vue_vue_type_template_id_25d7c3da___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/SheetEditJasa.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/SheetEditJasa.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/SheetEditJasa.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SheetEditJasa_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./SheetEditJasa.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SheetEditJasa.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SheetEditJasa_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/SheetEditJasa.vue?vue&type=template&id=25d7c3da&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/SheetEditJasa.vue?vue&type=template&id=25d7c3da& ***!
+  \**********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SheetEditJasa_vue_vue_type_template_id_25d7c3da___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./SheetEditJasa.vue?vue&type=template&id=25d7c3da& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SheetEditJasa.vue?vue&type=template&id=25d7c3da&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SheetEditJasa_vue_vue_type_template_id_25d7c3da___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SheetEditJasa_vue_vue_type_template_id_25d7c3da___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -86513,8 +86878,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! A:\Programming\Web-Root\wdl_laundry\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! A:\Programming\Web-Root\wdl_laundry\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\APK\Web-Root\wdl_laundry\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\APK\Web-Root\wdl_laundry\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
