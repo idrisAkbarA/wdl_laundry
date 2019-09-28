@@ -7,6 +7,7 @@ use App\loket;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class loketController extends Controller
 {
@@ -18,7 +19,17 @@ class loketController extends Controller
     use RegistersUsers;
     public function index()
     {
-        $lokets = loket::where('status','aktif')->get();
+//         DB::table('users')
+// ->select('users.id','users.name','profiles.photo')
+// ->join('profiles','profiles.id','=','users.id')
+// ->where(['something' => 'something', 'otherThing' => 'otherThing'])
+// ->get();
+//         $lokets = loket::where('status','aktif')->where('name','')->get();
+        $lokets =
+                DB::table('lokets')
+        ->select('lokets.nama','lokets.alamat','lokets.hp','lokets.created_at','users.email')
+        ->join('users','users.name','=','lokets.nama')
+        ->get();
         return view('daftarLoket')->with('lokets', $lokets);
     }
 
@@ -45,9 +56,16 @@ class loketController extends Controller
         $defaultPassword = $form['nama']."123123";
         User::create(['name'=>$form['nama'], 'email'=>$form['email'],'password'=>Hash::make($defaultPassword)]);
         loket::create(['nama'=>$form['nama'],'alamat'=>$form['alamat'],'hp'=>$form['hp'],'status'=>'aktif']);
-        $lokets = loket::all();
+        $lokets = loket::where('status','aktif')->get();
+        $lokets =
+                DB::table('lokets')
+        ->select('lokets.nama','lokets.alamat','lokets.hp','lokets.created_at','users.email')
+        ->join('users','users.name','=','lokets.nama')
+        ->where('status','aktif')
+        ->get();
         return view('daftarLoket')->with('lokets', $lokets);
     }
+
 
     /**
      * Display the specified resource.
@@ -55,8 +73,11 @@ class loketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($nama)
     {
+        $hasil = loket::where('nama', $nama)->get();
+        $email = User::where('name', $nama)->get(['email']);
+        return response([$hasil,$email]);
         //
     }
 
@@ -66,9 +87,18 @@ class loketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($nama,Request $request)
     {
-        //
+        $form = $request->input();
+        User::where('name',$nama)->update(['name'=>$form["nama"],'email'=>$form['email']]);
+        loket::where('nama',$nama)->update(['nama'=>$form['nama'],'alamat'=>$form['alamat'],'hp'=>$form['hp']]);
+        $lokets =
+                DB::table('lokets')
+        ->select('lokets.nama','lokets.alamat','lokets.hp','lokets.created_at','users.email')
+        ->join('users','users.name','=','lokets.nama')
+        ->where('status','aktif')
+        ->get();
+        return view('daftarLoket')->with('lokets', $lokets);
     }
 
     /**
