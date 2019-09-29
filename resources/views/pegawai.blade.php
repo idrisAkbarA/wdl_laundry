@@ -91,8 +91,8 @@ Pegawai
                     </v-sheet>
 
 
-                    <v-card-text>
-                        apakah anda yakin akan menghapus pegawai @{{buang}}?
+                    <v-card-text style="margin-top:1em">
+                        Apakah anda yakin akan menghapus pegawai @{{buang}}?
                     </v-card-text>
 
                     <v-card-actions>

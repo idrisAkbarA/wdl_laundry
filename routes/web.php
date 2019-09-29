@@ -23,9 +23,8 @@ Route::get('/kasir', function (){
 });
 Route::get('/pegawai', 'PegawaiController@index');
 
-Route::get('/pelanggan', function (){
-    return view('pelanggan');
-});
+Route::get('/pelanggan', 'PelangganController@index');
+
 Route::get('/daftarLoket', 'loketController@index');
 
 Route::get('/jasa', 'JasaController@index');

@@ -18,6 +18,7 @@ Pelanggan
         {{-- awal tab member --}}
         <v-tab-item>
             <v-card flat>
+                @if (count($pelanggans)>0)
                 <div class="ma-5">
                     <v-btn dark text class="blue" @click="sheet = !sheet">Tambahkan Member</v-btn>
                 </div>
@@ -30,23 +31,74 @@ Pelanggan
                                 <th class="font-weight-bold body-1">Nomor HP</th>
                                 <th class="font-weight-bold body-1">Alamat</th>
                                 <th class="font-weight-bold body-1">Tanggal Daftar</th>
+                                <th class="font-weight-bold body-1">Transaksi Terakhir</th>
                                 <th class="font-weight-bold body-1">Jumlah Transaksi</th>
                                 <th class="font-weight-bold body-1">Kuota</th>
+                                <th class="font-weight-bold body-1 text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                            $i=0;
+                            @endphp
+                            @foreach ($pelanggans as $pelanggan)
+                            @if ($pelanggan->member== "member")
+                            @php
+                            $i=$i+1;
+                            @endphp
                             <tr>
-                                <td>1. </td>
-                                <td>Idris Akbar Adyusman</td>
-                                <td>082169670012</td>
-                                <td>jalan</td>
-                                <td>31 Agustus 2000</td>
-                                <td>12</td>
-                                <td>12kg</td>
+                                <td>{{$i}}</td>
+                                <td>{{$pelanggan->nama}}</td>
+                                <td>{{$pelanggan->id}}</td>
+                                <td>{{$pelanggan->alamat}}</td>
+                                <td>{{$pelanggan->created_at}}</td>
+                                <td>{{$pelanggan->updated_at}}</td>
+                                <td>{{$pelanggan->jml_transaksi}}</td>
+                                <td>{{$pelanggan->kuota}}</td>
+                                <td>
+                                    {{-- pop up dialog --}}
+                                    <v-row justify="center">
+                                        <v-btn text color="primary" dark @click.stop="dialog = true">
+                                            Top Up Kuota
+                                        </v-btn>
+
+                                        <v-dialog v-model="dialog" max-width="400">
+                                            <v-card>
+                                                <v-sheet color="blue" dark>
+                                                    <v-card-title class="headline">Top Up Kuota
+                                                    </v-card-title>
+                                                </v-sheet>
+
+                                                <v-card-text>
+                                                    <v-text-field class="ma-3" label="Masukkan Jumlah Top Up"
+                                                        name="topup" prepend-inner-icon="local_atm" filled>
+                                                    </v-text-field>
+                                                </v-card-text>
+
+                                                <v-card-actions>
+
+                                                    <v-btn color="error" text @click="dialog = false">
+                                                        Batal
+                                                    </v-btn>
+                                                    <v-spacer></v-spacer>
+                                                    <v-btn color="green darken-1" text @click="dialog = false">
+                                                        Top Up
+                                                    </v-btn>
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-dialog>
+                                    </v-row>
+                                    {{-- end pop up dialog --}}
+                                </td>
                             </tr>
                         </tbody>
+                        @endif
+                        @endforeach
                     </template>
                 </v-simple-table>
+                @else
+                <p>belum ada pelanggan</p>
+                @endif
             </v-card>
         </v-tab-item>
         {{-- akhir tab member --}}
@@ -54,6 +106,7 @@ Pelanggan
         {{-- awal tab non member --}}
         <v-tab-item>
             <v-card flat>
+                @if (count($pelanggans)>0)
                 <v-container>
                     <v-row justify="end">
                         <v-col cols="12" lg="3" style="margin-top:-1em;margin-bottom:-2em">
@@ -73,46 +126,58 @@ Pelanggan
                                     <th class="font-weight-bold body-1">Nama</th>
                                     <th class="font-weight-bold body-1">Nomor HP</th>
                                     <th class="font-weight-bold body-1">Alamat</th>
-                                    <th class="font-weight-bold body-1">Tanggal Transaksi</th>
+                                    <th class="font-weight-bold body-1">Tanggal Daftar</th>
+                                    <th class="font-weight-bold body-1">Transaksi Terakhir</th>
                                     <th class="font-weight-bold body-1">Jumlah Transaksi</th>
                                     <th class="font-weight-bold body-1 text-center">Daftar Sebagai Member</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                $i=0;
+                                @endphp
+                                @foreach ($pelanggans as $pelanggan)
+                                @if ($pelanggan->member== "bukan_member")
+                                @php
+                                $i=$i+1;
+                                @endphp
                                 <tr>
-                                    <td>1. </td>
-                                    <td>Idris Akbar Adyusman</td>
-                                    <td>082169670012</td>
-                                    <td>jalan</td>
-                                    <td>31 Agustus 2000</td>
-                                    <td>31</td>
+                                    <td>{{$i}} </td>
+                                    <td>{{$pelanggan->nama}}</td>
+                                    <td>{{$pelanggan->id}}</td>
+                                    <td>{{$pelanggan->alamat}}</td>
+                                    <td>{{$pelanggan->created_at}}</td>
+                                    <td>{{$pelanggan->updated_at}}</td>
+                                    <td>{{$pelanggan->jml_transaksi}}</td>
                                     <td>
                                         {{-- pop up dialog --}}
                                         <v-row justify="center">
-                                            <v-btn text color="primary" dark @click.stop="dialog = true">
+                                            <v-btn text color="primary" dark @click.stop="dialog1 = true">
                                                 Daftar
                                             </v-btn>
 
-                                            <v-dialog v-model="dialog" max-width="290">
+                                            <v-dialog v-model="dialog1" max-width="500">
                                                 <v-card>
-                                                    <v-card-title class="headline">Use Google's location service?
-                                                    </v-card-title>
+                                                        <v-sheet color="blue" dark>
+                                                                <v-card-title class="headline">Daftar Sebagai Member
+                                                                    </v-card-title>
+                                                            </v-sheet>
+                                                    
 
-                                                    <v-card-text>
-                                                        Let Google help apps determine location. This means sending
-                                                        anonymous location data to Google, even when
-                                                        no apps are running.
+                                                    <v-card-text class="mt-5">
+                                                        <v-text-field label="Scan/Input Kartu Member"
+                                                            name="id_member" prepend-inner-icon="credit_card" filled>
+                                                        </v-text-field>
                                                     </v-card-text>
 
                                                     <v-card-actions>
-                                                        <div class="flex-grow-1"></div>
 
-                                                        <v-btn color="green darken-1" text @click="dialog = false">
-                                                            Disagree
+                                                        <v-btn color="error" text @click="dialog1 = false">
+                                                            Batal
                                                         </v-btn>
-
-                                                        <v-btn color="green darken-1" text @click="dialog = false">
-                                                            Agree
+                                                        <v-spacer></v-spacer>
+                                                        <v-btn color="green darken-1" text @click="dialog1 = false">
+                                                            Daftar
                                                         </v-btn>
                                                     </v-card-actions>
                                                 </v-card>
@@ -122,15 +187,20 @@ Pelanggan
                                     </td>
                                 </tr>
                             </tbody>
+                            @endif
+                            @endforeach
                         </template>
                     </v-simple-table>
+                    @else
+                    <p>belum ada pelanggan</p>
+                    @endif
             </v-card>
         </v-tab-item>
         {{-- akhir tab non member --}}
 
         {{-- awal tab semua --}}
         <v-tab-item>
-            <v-card flat>
+            <v-card flat style="margin-top:1em">
                 @if (count($pelanggans)>0)
                 <v-simple-table>
                     <template v-slot:default>
@@ -141,6 +211,7 @@ Pelanggan
                                 <th class="font-weight-bold body-1">Nomor HP</th>
                                 <th class="font-weight-bold body-1">Alamat</th>
                                 <th class="font-weight-bold body-1">Tanggal Daftar</th>
+                                <th class="font-weight-bold body-1">Transaksi Terakhir</th>
                                 <th class="font-weight-bold body-1">Jumlah Transaksi</th>
                                 <th class="font-weight-bold body-1">Kuota</th>
                             </tr>
@@ -154,13 +225,14 @@ Pelanggan
                             $i=$i+1;
                             @endphp
                             <tr>
-                                <td>1. </td>
-                                <td>Idris Akbar Adyusman</td>
-                                <td>082169670012</td>
-                                <td>jalan</td>
-                                <td>31 Agustus 2000</td>
-                                <td>12</td>
-                                <td>12kg</td>
+                                <td>{{$i}}</td>
+                                <td>{{$pelanggan->nama}}</td>
+                                <td>{{$pelanggan->id}}</td>
+                                <td>{{$pelanggan->alamat}}</td>
+                                <td>{{$pelanggan->created_at}}</td>
+                                <td>{{$pelanggan->updated_at}}</td>
+                                <td>{{$pelanggan->jml_transaksi}}</td>
+                                <td>{{$pelanggan->kuota}}</td>
                             </tr>
                         </tbody>
                         @endforeach
@@ -186,14 +258,17 @@ Pelanggan
                 </div>
                 <div class="mx-5">
                     <v-row rows="12" sm="6" md="3">
-                        <v-col cols="12" lg="4" sm="6" md="4">
+                        <v-col cols="12" lg="3" sm="6" md="3">
+                            <v-text-field label="Scan/Input Kartu Member" name="id_member" prepend-inner-icon="credit_card" filled></v-text-field>
+                        </v-col>
+                        <v-col cols="12" lg="3" sm="6" md="3">
                             <v-text-field label="Nama" name="nama" prepend-inner-icon="person" filled></v-text-field>
                         </v-col>
-                        <v-col cols="12" lg="4" sm="6" md="4">
+                        <v-col cols="12" lg="3" sm="6" md="3">
                             <v-text-field label="Nomor HP" name="hp" prepend-inner-icon="phone" filled></v-text-field>
                         </v-col>
 
-                        <v-col cols="12" lg="4" sm="6" md="4">
+                        <v-col cols="12" lg="3" sm="6" md="3">
                             <v-text-field label="Alamat" name="alamat" prepend-inner-icon="room" filled>
                             </v-text-field>
                         </v-col>
