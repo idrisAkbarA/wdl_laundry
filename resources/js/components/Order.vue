@@ -100,10 +100,10 @@
 <script>
     import Axios from 'axios';
     export default {
-        beforeMount(){
+        beforeCreate(){
              Axios.get('/jasa/kasir').then(response=>{
                  this.jasa_result = response.data;
-                 console.log(this.jasa_result[0]);
+                 console.log(this.jasa_result);
              })
         },
         data: ()=>({
@@ -152,7 +152,7 @@
             },
             autoCompleteHP(){
 
-                if(this.searchquery2.length > 2){
+                if(this.searchquery2.length > 4){
                     Axios.get('/pelanggan/searchhp',{params: {searchquery: this.searchquery2}}).then(response => {
                         this.data_result2 = response.data;
                         console.log(this.data_result2.length);

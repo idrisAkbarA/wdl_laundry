@@ -2074,7 +2074,7 @@ __webpack_require__.r(__webpack_exports__);
     autoCompleteHP: function autoCompleteHP() {
       var _this3 = this;
 
-      if (this.searchquery2.length > 2) {
+      if (this.searchquery2.length > 4) {
         axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/pelanggan/searchhp', {
           params: {
             searchquery: this.searchquery2
