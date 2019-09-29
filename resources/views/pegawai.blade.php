@@ -37,12 +37,12 @@ Pegawai
                 </tr>
             </thead>
             <tbody>
-            @php
+                @php
                 $i=0;
-            @endphp
+                @endphp
                 @foreach ($pegawais as $pegawai)
                 @php
-                    $i=$i+1;
+                $i=$i+1;
                 @endphp
                 <tr>
                     <td>{{$i}}</td>
@@ -82,42 +82,42 @@ Pegawai
                     </td>
                 </tr>
             </tbody>
-{{-- end table --}}
-{{-- popup dialog --}}
-<v-dialog v-model="dialog" max-width="400">
-        <v-card>
-            <v-sheet color="error" dark>
-                <v-card-title class="headline">Hapus Pegawai @{{buang}} </v-card-title>
-            </v-sheet>
+            {{-- end table --}}
+            {{-- popup dialog --}}
+            <v-dialog v-model="dialog" max-width="400">
+                <v-card>
+                    <v-sheet color="error" dark>
+                        <v-card-title class="headline">Hapus Pegawai @{{buang}} </v-card-title>
+                    </v-sheet>
 
 
-            <v-card-text>
-                apakah anda yakin akan menghapus pegawai @{{buang}}?
-            </v-card-text>
+                    <v-card-text>
+                        apakah anda yakin akan menghapus pegawai @{{buang}}?
+                    </v-card-text>
 
-            <v-card-actions>
+                    <v-card-actions>
 
 
-                <v-btn color="green darken-1" text @click="dialog = false">
-                    Batal
-                </v-btn>
-                <v-spacer></v-spacer>
-                <v-btn height="50" width="120" color="error" @click="deletePegawai">
-                    <v-icon>delete</v-icon>Hapus
-                </v-btn>
-            </v-card-actions>
-        </v-card>
-    </v-dialog>
-@endforeach
-</template>
-</v-simple-table>
+                        <v-btn color="green darken-1" text @click="dialog = false">
+                            Batal
+                        </v-btn>
+                        <v-spacer></v-spacer>
+                        <v-btn height="50" width="120" color="error" @click="deletePegawai">
+                            <v-icon>delete</v-icon>Hapus
+                        </v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-dialog>
+            @endforeach
+        </template>
+    </v-simple-table>
 </v-container>
 @else
 <P>Belum ada Pegawai</P>
 @endif
 
 </v-container>
-    {{-- end popup dialog --}}
+{{-- end popup dialog --}}
 {{-- bottom sheet --}}
 <div class="text-center">
 
