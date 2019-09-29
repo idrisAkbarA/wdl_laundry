@@ -18,7 +18,7 @@ class CreatePelanggan extends Migration
             $table->String('id_member')->unique()->nullable(); // nama loket + increment
             $table->String('nama');
             $table->String('alamat');
-            $table->String('jml_transaksi');
+            $table->int('jml_transaksi');
             $table->enum('member',['member','bukan_member']);
             $table->Double('kuota')->nullable(); //dalam kg
             $table->timestamps();

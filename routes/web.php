@@ -53,4 +53,5 @@ Route::resource('/pegawai', 'PegawaiController');
 
 Route::resource('/jasa', 'JasaController');
 Route::get('/pelanggan/search', 'pelangganController@autoComplete');
+Route::get('/pelanggan/searchhp', 'pelangganController@autoCompleteHP');
 Route::get('/jasa/kasir', 'JasaController@kasir');

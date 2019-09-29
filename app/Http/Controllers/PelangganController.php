@@ -18,5 +18,10 @@ class PelangganController extends Controller
         $data = pelanggan::where('nama','like','%'.$searchquery.'%')->get();
         return response()->json($data);
     }
+    public function autoCompleteHP(Request $request){
+        $searchquery = $request->searchquery;
+        $data = pelanggan::where('id','like','%'.$searchquery.'%')->get();
+        return response()->json($data);
+    }
 
 }

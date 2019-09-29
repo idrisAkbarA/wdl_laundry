@@ -1999,6 +1999,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   beforeMount: function beforeMount() {
@@ -2016,8 +2026,10 @@ __webpack_require__.r(__webpack_exports__);
       searchquery2: '',
       alamat: '',
       data_result: [],
+      data_result2: [],
       jasa_result: [],
-      isExist: false
+      isExist: false,
+      isExist2: false
     };
   },
   methods: {
@@ -2028,10 +2040,15 @@ __webpack_require__.r(__webpack_exports__);
       this.alamat = this.data_result[index].alamat;
       this.isExist = false;
     },
+    selectedhp: function selectedhp(nama, index) {
+      console.log(nama, index);
+      this.searchquery2 = this.data_result2[index].id;
+      this.searchquery = nama;
+      this.alamat = this.data_result2[index].alamat;
+      this.isExist2 = false;
+    },
     autoComplete: function autoComplete() {
       var _this2 = this;
-
-      this.data_results = [];
 
       if (this.searchquery.length > 2) {
         axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/pelanggan/search', {
@@ -2051,6 +2068,30 @@ __webpack_require__.r(__webpack_exports__);
         });
       } else {
         this.isExist = false;
+        console.log("belum 2");
+      }
+    },
+    autoCompleteHP: function autoCompleteHP() {
+      var _this3 = this;
+
+      if (this.searchquery2.length > 2) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/pelanggan/searchhp', {
+          params: {
+            searchquery: this.searchquery2
+          }
+        }).then(function (response) {
+          _this3.data_result2 = response.data;
+          console.log(_this3.data_result2.length);
+
+          if (_this3.data_result2.length > 0) {
+            console.log(_this3.data_result2[0].nama);
+            _this3.isExist2 = true;
+          } else {
+            _this3.isExist2 = false;
+          }
+        });
+      } else {
+        this.isExist2 = false;
         console.log("belum 2");
       }
     }
@@ -38374,7 +38415,8 @@ var render = function() {
                                 expression: "isExist"
                               }
                             ],
-                            key: index
+                            key: index,
+                            attrs: { color: "blue lighten-4", elevation: "5" }
                           },
                           [
                             _c(
@@ -38429,6 +38471,7 @@ var render = function() {
                           type: "text",
                           required: ""
                         },
+                        on: { keyup: _vm.autoCompleteHP },
                         model: {
                           value: _vm.searchquery2,
                           callback: function($$v) {
@@ -38436,9 +38479,61 @@ var render = function() {
                           },
                           expression: "searchquery2"
                         }
+                      }),
+                      _vm._v(" "),
+                      _vm._l(_vm.data_result2, function(result, index) {
+                        return _c(
+                          "v-card",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.isExist2,
+                                expression: "isExist2"
+                              }
+                            ],
+                            key: index,
+                            attrs: { color: "blue lighten-4", elevation: "5" }
+                          },
+                          [
+                            _c(
+                              "v-list-item",
+                              {
+                                attrs: { tile: "", "two-line": "" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.selectedhp(result.nama, index)
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "v-list-item-content",
+                                  [
+                                    _c("v-list-item-title", [
+                                      _vm._v(
+                                        "\n                                                       " +
+                                          _vm._s(result.nama) +
+                                          "\n                                                    "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("v-list-item-subtitle", [
+                                      _vm._v(_vm._s(result.id))
+                                    ])
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
                       })
                     ],
-                    1
+                    2
                   ),
                   _vm._v(" "),
                   _c(
@@ -88446,8 +88541,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\APK\Web-Root\wdl_laundry\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\APK\Web-Root\wdl_laundry\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! A:\Programming\Web-Root\wdl_laundry\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! A:\Programming\Web-Root\wdl_laundry\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

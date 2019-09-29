@@ -14,7 +14,7 @@
                                 <v-col cols="12" md="6" style="z-index:0; position:relative;">
                                     <v-text-field v-model="searchquery" v-on:keyup="autoComplete" label="Nama Pelanggan" name="login"
                                         filled prepend-inner-icon="person" type="text" required></v-text-field>
-                                        <v-card v-show="isExist" v-for="(result,index) in data_result" v-bind:key="index">
+                                        <v-card color="blue lighten-4" elevation="5" v-show="isExist" v-for="(result,index) in data_result" v-bind:key="index">
                                                 <v-list-item tile two-line @click="selected(result.nama,index)">
                                                     <v-list-item-content>
                                                         <v-list-item-title>
@@ -27,9 +27,19 @@
                                         </v-card>
                                 </v-col>
                                 <v-col cols="12" md="6">
-                                    <v-text-field v-model="searchquery2" label="Nomor Hp" name="login"
+                                    <v-text-field v-model="searchquery2" v-on:keyup="autoCompleteHP" label="Nomor Hp" name="login"
                                         filled prepend-inner-icon="phone" type="text" required></v-text-field>
+                                    <v-card color="blue lighten-4" v-show="isExist2" elevation="5" v-for="(result,index) in data_result2" v-bind:key="index">
+                                                <v-list-item tile two-line @click="selectedhp(result.nama,index)">
+                                                    <v-list-item-content>
+                                                        <v-list-item-title>
+                                                           {{result.nama}}
+                                                        </v-list-item-title>
+                                                        <v-list-item-subtitle>{{result.id}}</v-list-item-subtitle>
+                                                    </v-list-item-content>
+                                                </v-list-item>
 
+                                        </v-card>
                                 </v-col>
                                 <v-col cols="12" md="12" style="z-index:0">
                                     <v-text-field  v-model="alamat" label="Alamat" name="login"
@@ -102,8 +112,10 @@
             searchquery2:'',
             alamat:'',
             data_result:[],
+            data_result2:[],
             jasa_result:[],
-            isExist: false
+            isExist: false,
+            isExist2: false
         }),
         methods:{
             selected(nama,index){
@@ -113,8 +125,15 @@
                 this.alamat = this.data_result[index].alamat;
                 this.isExist=false;
             },
+            selectedhp(nama,index){
+                console.log(nama, index);
+                this.searchquery2 = this.data_result2[index].id;
+                this.searchquery = nama;
+                this.alamat = this.data_result2[index].alamat;
+                this.isExist2=false;
+            },
             autoComplete(){
-                this.data_results = [];
+
                 if(this.searchquery.length > 2){
                     Axios.get('/pelanggan/search',{params: {searchquery: this.searchquery}}).then(response => {
                         this.data_result = response.data;
@@ -128,6 +147,24 @@
                     });
                 }else{
                     this.isExist =false;
+                    console.log("belum 2");
+                }
+            },
+            autoCompleteHP(){
+
+                if(this.searchquery2.length > 2){
+                    Axios.get('/pelanggan/searchhp',{params: {searchquery: this.searchquery2}}).then(response => {
+                        this.data_result2 = response.data;
+                        console.log(this.data_result2.length);
+                        if(this.data_result2.length>0){
+                            console.log(this.data_result2[0].nama);
+                            this.isExist2=true;
+                        }else{
+                            this.isExist2=false;
+                        }
+                    });
+                }else{
+                    this.isExist2 =false;
                     console.log("belum 2");
                 }
             },
