@@ -87827,6 +87827,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       }],
       sheet2: false,
       dialog: false,
+      dialog1: false,
       del: 'nama loket untuk dihapus',
       buang: 'nama pegawai untuk dihapus',
       //animasi

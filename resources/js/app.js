@@ -51,6 +51,7 @@ const app = new Vue({
 
         sheet2: false,
         dialog:false,
+        dialog1:false,
 
         del:'nama loket untuk dihapus',
         buang:'nama pegawai untuk dihapus',
