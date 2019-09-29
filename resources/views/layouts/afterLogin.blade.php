@@ -17,7 +17,7 @@
 
 
             <v-navigation-drawer v-model="drawer" app>
-                <v-list dense>
+                <v-list tile dense>
                     <v-list-item @click="dasbor()" class="@yield('dasbor')">
                         <v-list-item-action>
                             <v-icon color="blue">dashboard</v-icon>

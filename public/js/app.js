@@ -1987,18 +1987,49 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  beforeMount: function beforeMount() {
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/jasa/kasir').then(function (response) {
+      _this.jasa_result = response.data;
+      console.log(_this.jasa_result[0]);
+    });
+  },
   data: function data() {
     return {
       nama: '',
       searchquery: '',
-      data_result: []
+      searchquery2: '',
+      alamat: '',
+      data_result: [],
+      jasa_result: [],
+      isExist: false
     };
   },
   methods: {
+    selected: function selected(nama, index) {
+      console.log(nama, index);
+      this.searchquery2 = this.data_result[index].id;
+      this.searchquery = nama;
+      this.alamat = this.data_result[index].alamat;
+      this.isExist = false;
+    },
     autoComplete: function autoComplete() {
-      var _this = this;
+      var _this2 = this;
 
       this.data_results = [];
 
@@ -2008,15 +2039,19 @@ __webpack_require__.r(__webpack_exports__);
             searchquery: this.searchquery
           }
         }).then(function (response) {
-          console.log(response);
+          _this2.data_result = response.data;
+          console.log(_this2.data_result.length);
 
-          if (response.data < 1) {
-            _this.data_results = "tidak ada data";
+          if (_this2.data_result.length > 0) {
+            console.log(_this2.data_result[0].nama);
+            _this2.isExist = true;
+          } else {
+            _this2.isExist = false;
           }
-
-          _this.data_results = response.data;
         });
-        console.log('fired');
+      } else {
+        this.isExist = false;
+        console.log("belum 2");
       }
     }
   }
@@ -38325,9 +38360,60 @@ var render = function() {
                           },
                           expression: "searchquery"
                         }
+                      }),
+                      _vm._v(" "),
+                      _vm._l(_vm.data_result, function(result, index) {
+                        return _c(
+                          "v-card",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.isExist,
+                                expression: "isExist"
+                              }
+                            ],
+                            key: index
+                          },
+                          [
+                            _c(
+                              "v-list-item",
+                              {
+                                attrs: { tile: "", "two-line": "" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.selected(result.nama, index)
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "v-list-item-content",
+                                  [
+                                    _c("v-list-item-title", [
+                                      _vm._v(
+                                        "\n                                                       " +
+                                          _vm._s(result.nama) +
+                                          "\n                                                    "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("v-list-item-subtitle", [
+                                      _vm._v(_vm._s(result.id))
+                                    ])
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
                       })
                     ],
-                    1
+                    2
                   ),
                   _vm._v(" "),
                   _c(
@@ -38342,6 +38428,13 @@ var render = function() {
                           "prepend-inner-icon": "phone",
                           type: "text",
                           required: ""
+                        },
+                        model: {
+                          value: _vm.searchquery2,
+                          callback: function($$v) {
+                            _vm.searchquery2 = $$v
+                          },
+                          expression: "searchquery2"
                         }
                       })
                     ],
@@ -38363,6 +38456,13 @@ var render = function() {
                           "prepend-inner-icon": "home",
                           type: "text",
                           required: ""
+                        },
+                        model: {
+                          value: _vm.alamat,
+                          callback: function($$v) {
+                            _vm.alamat = $$v
+                          },
+                          expression: "alamat"
                         }
                       })
                     ],
@@ -88345,8 +88445,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\APK\Web-Root\wdl_laundry\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\APK\Web-Root\wdl_laundry\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! A:\Programming\Web-Root\wdl_laundry\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! A:\Programming\Web-Root\wdl_laundry\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

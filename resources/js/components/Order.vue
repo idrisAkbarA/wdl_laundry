@@ -14,16 +14,28 @@
                                 <v-col cols="12" md="6" style="z-index:0; position:relative;">
                                     <v-text-field v-model="searchquery" v-on:keyup="autoComplete" label="Nama Pelanggan" name="login"
                                         filled prepend-inner-icon="person" type="text" required></v-text-field>
+                                        <v-card v-show="isExist" v-for="(result,index) in data_result" v-bind:key="index">
+                                                <v-list-item tile two-line @click="selected(result.nama,index)">
+                                                    <v-list-item-content>
+                                                        <v-list-item-title>
+                                                           {{result.nama}}
+                                                        </v-list-item-title>
+                                                        <v-list-item-subtitle>{{result.id}}</v-list-item-subtitle>
+                                                    </v-list-item-content>
+                                                </v-list-item>
+
+                                        </v-card>
                                 </v-col>
                                 <v-col cols="12" md="6">
-                                    <v-text-field  label="Nomor Hp" name="login"
+                                    <v-text-field v-model="searchquery2" label="Nomor Hp" name="login"
                                         filled prepend-inner-icon="phone" type="text" required></v-text-field>
 
                                 </v-col>
                                 <v-col cols="12" md="12" style="z-index:0">
-                                    <v-text-field  label="Alamat" name="login"
+                                    <v-text-field  v-model="alamat" label="Alamat" name="login"
                                         filled prepend-inner-icon="home" type="text" required></v-text-field>
                                 </v-col>
+
                                 <v-container>
                                     <v-layout dense row wrap>
                                         <v-row dense justify="space-around">
@@ -78,23 +90,45 @@
 <script>
     import Axios from 'axios';
     export default {
+        beforeMount(){
+             Axios.get('/jasa/kasir').then(response=>{
+                 this.jasa_result = response.data;
+                 console.log(this.jasa_result[0]);
+             })
+        },
         data: ()=>({
             nama: '',
             searchquery:'',
-            data_result:[]
+            searchquery2:'',
+            alamat:'',
+            data_result:[],
+            jasa_result:[],
+            isExist: false
         }),
         methods:{
+            selected(nama,index){
+                console.log(nama, index);
+                this.searchquery2 = this.data_result[index].id;
+                this.searchquery = nama;
+                this.alamat = this.data_result[index].alamat;
+                this.isExist=false;
+            },
             autoComplete(){
                 this.data_results = [];
                 if(this.searchquery.length > 2){
-                Axios.get('/pelanggan/search',{params: {searchquery: this.searchquery}}).then(response => {
-                    console.log(response);
-                    if(response.data<1){
-                        this.data_results="tidak ada data"
-                    }
-                this.data_results = response.data;
-                });
-                console.log('fired');
+                    Axios.get('/pelanggan/search',{params: {searchquery: this.searchquery}}).then(response => {
+                        this.data_result = response.data;
+                        console.log(this.data_result.length);
+                        if(this.data_result.length>0){
+                            console.log(this.data_result[0].nama);
+                            this.isExist=true;
+                        }else{
+                            this.isExist=false;
+                        }
+                    });
+                }else{
+                    this.isExist =false;
+                    console.log("belum 2");
                 }
             },
         }

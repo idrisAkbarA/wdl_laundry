@@ -17,6 +17,12 @@ class JasaController extends Controller
         return view('jasa')->with('jasas',$jasas);
     }
 
+    public function kasir()
+    {
+        $data = jasa::all();
+        return response()->json($data);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -62,11 +68,11 @@ class JasaController extends Controller
     public function edit($nama,Request $request)
     {
         $form = $request->input();
-        
+
         jasa::where('nama_jasa',$nama)->update(['nama_jasa'=>$form['nama_jasa'],'satuan'=>$form['satuan'],'harga'=>$form['harga']]);
 
         $jasas = jasa::all();
-                
+
         return view('jasa')->with('jasas', $jasas);
     }
 
